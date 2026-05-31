@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro de Marcas no INPI | Portal Paralegal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Barlow', sans-serif; background: #080808; color: #fff; overflow-x: hidden; }
+a { text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+:root {
+  --navy: #0A1628;
+  --navy-mid: #1B3A6B;
+  --blue: #4A9EDE;
+  --white: #fff;
+  --gray: #888;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #040D1A 0%, #0A1628 55%, #0D2040 100%);
+  padding: 60px 40px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(74,158,222,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--blue), transparent);
+}
+.hero-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 60px;
+  align-items: start;
+  position: relative; z-index: 2;
+}
+.tag {
+  display: inline-block;
+  border: 1px solid rgba(74,158,222,0.35);
+  padding: 6px 16px; margin-bottom: 24px;
+  font-size: 10px; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--blue); font-weight: 500;
+}
+.course-label {
+  font-size: 11px; letter-spacing: 6px;
+  text-transform: uppercase; color: var(--blue);
+  font-weight: 500; margin-bottom: 12px;
+}
+.course-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 6.5vw, 90px);
+  font-weight: 300; line-height: 0.92;
+  color: #fff; letter-spacing: 2px;
+  margin-bottom: 0;
+}
+.course-subtitle-row {
+  display: flex; align-items: center;
+  gap: 16px; margin: 12px 0 32px;
+}
+.course-subtitle-line { height: 1px; width: 48px; background: var(--blue); flex-shrink: 0; }
+.course-subtitle-text {
+  font-size: 13px; letter-spacing: 5px;
+  text-transform: uppercase; color: var(--blue);
+  font-weight: 400;
+}
+.hero-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 2.5vw, 30px);
+  font-weight: 300; color: #fff;
+  line-height: 1.35; margin-bottom: 16px;
+}
+.hero-headline em { color: var(--blue); font-style: italic; }
+.hero-desc {
+  font-size: 16px; color: rgba(255,255,255,0.65);
+  line-height: 1.8; font-weight: 300; margin-bottom: 36px;
+  max-width: 560px;
+}
+.stats-row { display: flex; gap: 32px; margin-bottom: 36px; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px; color: #fff; font-weight: 300; line-height: 1;
+}
+.stat-l {
+  font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,0.4);
+  margin-top: 4px;
+}
+.stat-div { width: 1px; background: rgba(255,255,255,0.1); align-self: stretch; }
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-p {
+  background: var(--navy-mid); color: #fff;
+  padding: 15px 36px; font-size: 11px;
+  letter-spacing: 3px; text-transform: uppercase;
+  font-weight: 600; border: 1px solid var(--navy-mid);
+  transition: all 0.3s; cursor: pointer;
+}
+.btn-p:hover { background: var(--blue); border-color: var(--blue); color: #000; }
+.btn-s {
+  background: transparent; color: #fff;
+  padding: 15px 36px; font-size: 11px;
+  letter-spacing: 3px; text-transform: uppercase;
+  font-weight: 400; border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s; cursor: pointer;
+}
+.btn-s:hover { border-color: var(--blue); color: var(--blue); }
+
+/* PRICE CARD */
+.price-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(74,158,222,0.25);
+  padding: 32px 28px; position: relative;
+}
+.price-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--navy-mid), var(--blue));
+}
+.price-lbl { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+.price-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px; font-weight: 300; color: #fff;
+  line-height: 1; margin-bottom: 4px;
+}
+.price-val sup { font-size: 22px; vertical-align: top; margin-top: 10px; display: inline-block; }
+.price-inst { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
+.price-inst strong { color: var(--blue); }
+.card-cta {
+  display: block; background: var(--navy-mid); color: #fff;
+  text-align: center; padding: 15px;
+  font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; font-weight: 600;
+  border: 1px solid var(--navy-mid); transition: all 0.3s; margin-bottom: 20px;
+}
+.card-cta:hover { background: var(--blue); border-color: var(--blue); color: #000; }
+.card-feats { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.card-feats li {
+  display: flex; gap: 10px;
+  font-size: 12px; color: rgba(255,255,255,0.6); font-weight: 300;
+}
+.card-feats li::before { content: '✓'; color: var(--blue); flex-shrink: 0; }
+.card-sep { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 16px 0; }
+.card-guar {
+  display: flex; gap: 10px; align-items: flex-start;
+  font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5;
+}
+
+/* SEÇÕES */
+.sec { padding: 90px 40px; }
+.sec-w { background: #fff; }
+.sec-g { background: #f7f8fa; }
+.sec-n { background: #0A1628; }
+.sec-inner { max-width: 1100px; margin: 0 auto; }
+.stag { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--blue); font-weight: 500; margin-bottom: 10px; }
+.stitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 300; line-height: 1.2; margin-bottom: 12px; color: #0A1628; }
+.stitle-w { color: #fff; }
+.sline { width: 36px; height: 1px; background: var(--blue); margin-bottom: 24px; }
+.sdesc { font-size: 15px; color: #555; font-weight: 300; line-height: 1.8; max-width: 620px; }
+.sdesc-w { color: rgba(255,255,255,0.6); }
+
+/* PARA QUEM */
+.who-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 40px; background: #e0e8f0; }
+.who-item { background: #fff; padding: 28px 22px; transition: 0.3s; }
+.who-item:hover { background: #f0f6ff; }
+.who-icon { font-size: 22px; margin-bottom: 10px; }
+.who-title { font-size: 14px; font-weight: 600; color: #0A1628; margin-bottom: 6px; }
+.who-desc { font-size: 13px; color: #666; font-weight: 300; line-height: 1.6; }
+
+/* APRENDE */
+.learn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 40px; background: #e0e8f0; }
+.learn-item { background: #f7f8fa; padding: 20px 22px; display: flex; gap: 14px; transition: 0.3s; }
+.learn-item:hover { background: #eef3fb; }
+.learn-n { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: #c5d4e8; font-weight: 300; flex-shrink: 0; line-height: 1; min-width: 28px; }
+.learn-t { font-size: 13px; color: #444; font-weight: 300; line-height: 1.5; padding-top: 3px; }
+
+/* MÓDULOS */
+.mod-list { display: flex; flex-direction: column; gap: 1px; margin-top: 40px; }
+.mod-item { background: #fff; border: 1px solid #e0e8f0; padding: 22px 26px; display: flex; align-items: flex-start; gap: 20px; transition: 0.3s; }
+.mod-item:hover { border-color: var(--blue); background: #f8fbff; }
+.mod-n { font-family: 'Cormorant Garamond', serif; font-size: 38px; color: #d8e4f0; font-weight: 300; flex-shrink: 0; min-width: 52px; line-height: 1; }
+.mod-info { flex: 1; }
+.mod-title { font-size: 15px; font-weight: 600; color: #0A1628; margin-bottom: 8px; }
+.mod-aulas { display: flex; flex-direction: column; gap: 4px; }
+.mod-aula { font-size: 12px; color: #666; font-weight: 300; padding-left: 12px; position: relative; line-height: 1.45; }
+.mod-aula::before { content: '—'; position: absolute; left: 0; color: #c5d9ef; }
+.mod-tag { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); padding: 4px 10px; border: 1px solid #c5d9ef; white-space: nowrap; flex-shrink: 0; margin-top: 4px; }
+
+/* VÍDEO */
+.video-wrap { margin-top: 40px; border: 1px solid #e0e8f0; overflow: hidden; position: relative; }
+.video-wrap::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #1B3A6B, var(--blue)); z-index: 1; }
+.video-wrap iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
+.video-cap { padding: 14px 22px; background: #f7f8fa; display: flex; gap: 12px; align-items: center; border-top: 1px solid #e0e8f0; }
+.video-dot { width: 6px; height: 6px; background: var(--blue); border-radius: 50%; flex-shrink: 0; }
+.video-cap p { font-size: 13px; color: #666; font-weight: 300; }
+.video-cap strong { color: #0A1628; }
+
+/* DIFERENCIAIS */
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 40px; background: rgba(255,255,255,0.04); }
+.why-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(74,158,222,0.1); padding: 28px 20px; text-align: center; transition: 0.3s; }
+.why-item:hover { background: rgba(74,158,222,0.07); }
+.why-icon { font-size: 26px; margin-bottom: 12px; }
+.why-title { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+.why-desc { font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.6; }
+
+/* INSTRUTOR */
+.inst-inner { display: grid; grid-template-columns: 280px 1fr; gap: 64px; align-items: center; }
+.inst-img { position: relative; }
+.inst-img img { width: 100%; border: 3px solid #e0e8f0; }
+.inst-img::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #1B3A6B, var(--blue)); }
+.inst-name { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; color: #0A1628; margin-bottom: 6px; }
+.inst-role { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--blue); margin-bottom: 20px; }
+.inst-bio { font-size: 15px; color: #555; font-weight: 300; line-height: 1.9; margin-bottom: 24px; }
+.cred-list { display: flex; flex-direction: column; gap: 8px; }
+.cred-item { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: #555; font-weight: 300; }
+.cred-item::before { content: ''; width: 4px; height: 4px; background: var(--blue); border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+
+/* CTA FINAL */
+.cta-sec {
+  background: linear-gradient(135deg, #040D1A, #0A1628, #0D2040);
+  padding: 100px 40px; text-align: center; position: relative; overflow: hidden;
+}
+.cta-sec::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 100%, rgba(74,158,222,0.18) 0%, transparent 60%); }
+.cta-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 2; }
+.cta-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 300; color: #fff; margin-bottom: 16px; line-height: 1.2; }
+.cta-h em { color: var(--blue); font-style: italic; }
+.cta-p { font-size: 15px; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.8; margin-bottom: 32px; }
+.cta-price { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+.cta-price strong { color: #fff; font-size: 28px; }
+.cta-note { font-size: 12px; color: rgba(255,255,255,0.3); margin-bottom: 28px; }
+.cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+
+/* ============================
+   RESPONSIVO — TABLET (≤ 900px)
+   ============================ */
+@media (max-width: 900px) {
+  .hero { padding: 48px 28px 64px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  .price-card { max-width: 100%; }
+  .who-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .inst-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+  .inst-img { max-width: 240px; margin: 0 auto; }
+  .cred-list { align-items: center; }
+  .cred-item { justify-content: center; }
+}
+
+/* ============================
+   RESPONSIVO — SMARTPHONE (≤ 600px)
+   ============================ */
+@media (max-width: 600px) {
+  .hero { padding: 40px 20px 56px; }
+  .tag { font-size: 11px; letter-spacing: 2px; padding: 7px 14px; }
+  .course-label { font-size: 12px; letter-spacing: 4px; }
+  .course-title { font-size: 44px !important; letter-spacing: 1px; }
+  .course-subtitle-text { font-size: 12px; letter-spacing: 3px; }
+  .hero-headline { font-size: 22px !important; line-height: 1.4; }
+  .hero-desc { font-size: 16px !important; line-height: 1.85; }
+
+  .stats-row { gap: 12px; justify-content: center; }
+  .stat-n { font-size: 32px !important; }
+  .stat-l { font-size: 10px; letter-spacing: 1px; }
+  .stat-div { display: none; }
+
+  .btn-row { flex-direction: column; gap: 12px; }
+  .btn-p, .btn-s { width: 100%; text-align: center; padding: 18px 20px; font-size: 13px; letter-spacing: 2px; }
+
+  .price-card { padding: 28px 20px; }
+  .price-val { font-size: 54px !important; }
+  .price-inst { font-size: 15px; margin-bottom: 20px; }
+  .card-cta { padding: 18px; font-size: 13px; letter-spacing: 2px; margin-bottom: 22px; }
+  .card-feats li { font-size: 14px; gap: 12px; line-height: 1.5; }
+  .card-guar { font-size: 14px; gap: 12px; }
+
+  .sec { padding: 56px 20px; }
+  .stag { font-size: 11px; letter-spacing: 3px; }
+  .stitle { font-size: 28px !important; line-height: 1.25; }
+  .sdesc { font-size: 15px; line-height: 1.85; }
+
+  .who-grid { grid-template-columns: 1fr; gap: 0; }
+  .who-item { padding: 24px 20px; }
+  .who-icon { font-size: 28px; margin-bottom: 10px; }
+  .who-title { font-size: 16px; margin-bottom: 8px; }
+  .who-desc { font-size: 14px; line-height: 1.7; }
+
+  .learn-grid { grid-template-columns: 1fr; }
+  .learn-item { padding: 18px 16px; }
+  .learn-n { font-size: 28px; min-width: 32px; }
+  .learn-t { font-size: 15px; line-height: 1.6; }
+
+  .mod-item { flex-wrap: wrap; gap: 12px; padding: 20px 18px; }
+  .mod-tag { order: -1; font-size: 10px; padding: 5px 12px; }
+  .mod-n { font-size: 34px; min-width: 44px; }
+  .mod-title { font-size: 16px; margin-bottom: 6px; }
+  .mod-aula { font-size: 13px; }
+
+  .video-cap { padding: 14px 16px; }
+  .video-cap p { font-size: 14px; line-height: 1.55; }
+
+  .why-grid { grid-template-columns: 1fr; }
+  .why-item { padding: 28px 20px; }
+  .why-icon { font-size: 32px; margin-bottom: 14px; }
+  .why-title { font-size: 16px; margin-bottom: 8px; }
+  .why-desc { font-size: 14px; line-height: 1.7; }
+
+  .inst-inner { text-align: center; }
+  .inst-img { max-width: 220px !important; margin: 0 auto 28px; }
+  .inst-name { font-size: 36px !important; }
+  .inst-role { font-size: 11px; letter-spacing: 2px; margin-bottom: 18px; }
+  .inst-bio { font-size: 15px; line-height: 1.85; }
+  .cred-list { align-items: flex-start; }
+  .cred-item { font-size: 14px; line-height: 1.6; }
+
+  .cta-sec { padding: 68px 20px; }
+  .cta-h { font-size: 30px !important; line-height: 1.3; }
+  .cta-p { font-size: 16px; line-height: 1.8; }
+  .cta-price strong { font-size: 30px; }
+  .cta-note { font-size: 13px; margin-bottom: 28px; }
+  .cta-btns { flex-direction: column; align-items: stretch; gap: 12px; }
+  .cta-btns a { width: 100%; text-align: center; padding: 18px 20px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="tag">Portal Paralegal · Academia Paralegal</div>
+      <p class="course-label">Curso completo</p>
+      <h1 class="course-title">Registro de<br>Marcas no INPI</h1>
+      <div class="course-subtitle-row">
+        <div class="course-subtitle-line"></div>
+        <p class="course-subtitle-text">Do Fundamento à Prática</p>
+      </div>
+      <h2 class="hero-headline">Proteja seu maior ativo ou torne-se um <em>Especialista em Registro de Marcas.</em></h2>
+      <p class="hero-desc">No Brasil, a marca pertence a quem registra primeiro — não a quem usa há mais tempo. Não arrisque perder o nome do seu negócio. Aprenda o passo a passo completo, da análise inicial à emissão do certificado.</p>
+      <div class="stats-row">
+        <div class="stat"><div class="stat-n">15</div><div class="stat-l">Aulas</div></div>
+        <div class="stat-div"></div>
+        <div class="stat"><div class="stat-n">4h</div><div class="stat-l">Conteúdo</div></div>
+        <div class="stat-div"></div>
+        <div class="stat"><div class="stat-n">3</div><div class="stat-l">Módulos</div></div>
+        <div class="stat-div"></div>
+        <div class="stat"><div class="stat-n">7d</div><div class="stat-l">Garantia</div></div>
+      </div>
+      <div class="btn-row">
+        <a href="https://pay.hotmart.com/F95212737S" class="btn-p">Garantir minha vaga</a>
+        <a href="#aula-gratis" class="btn-s">Assistir aula gratuita</a>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <p class="price-lbl">Investimento</p>
+      <div class="price-val"><sup>R$</sup> 199<span style="font-size:28px;">,00</span></div>
+      <p class="price-inst">ou <strong>10x de R$ 19,90</strong> no cartão</p>
+      <a href="https://pay.hotmart.com/F95212737S" class="card-cta">Matricular-se agora</a>
+      <ul class="card-feats">
+        <li>15 aulas · 4 horas de conteúdo original</li>
+        <li>Certificado de conclusão reconhecido</li>
+        <li>Acesso em qualquer dispositivo</li>
+        <li>Uso de IA para otimizar o registro</li>
+        <li>Passo a passo no e-INPI e e-Marcas</li>
+        <li>Busca prévia investigativa na prática</li>
+      </ul>
+      <hr class="card-sep">
+      <div class="card-guar"><span style="font-size:18px;">🛡</span><span><strong style="color:#fff;">Garantia de 7 dias.</strong> Reembolso integral, sem perguntas.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PARA QUEM -->
+<div class="sec sec-w">
+  <div class="sec-inner">
+    <p class="stag">Público-alvo</p>
+    <h2 class="stitle">Este curso foi criado para você?</h2>
+    <div class="sline"></div>
+    <p class="sdesc">Seja para atuar como consultor faturando no lucrativo mercado de propriedade intelectual ou para proteger a sua própria empresa — este curso é o seu guia definitivo.</p>
+    <div class="who-grid">
+      <div class="who-item"><div class="who-icon">🏢</div><div class="who-title">Empreendedores e empresários</div><div class="who-desc">Que querem proteger o nome, logotipo e identidade de seu negócio antes de um concorrente registrar primeiro.</div></div>
+      <div class="who-item"><div class="who-icon">⚖️</div><div class="who-title">Profissionais jurídicos</div><div class="who-desc">Advogados, gestores e auxiliares jurídicos que desejam oferecer o serviço de registro de marcas aos seus clientes.</div></div>
+      <div class="who-item"><div class="who-icon">💼</div><div class="who-title">Consultores e agências</div><div class="who-desc">Que querem agregar o registro de marcas ao portfólio de serviços e faturar nesse mercado em crescimento.</div></div>
+      <div class="who-item"><div class="who-icon">🎓</div><div class="who-title">Estudantes e iniciantes</div><div class="who-desc">Que querem aprender propriedade intelectual na prática e já sair preparados para atuar no mercado.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- O QUE APRENDE -->
+<div class="sec sec-g">
+  <div class="sec-inner">
+    <p class="stag">Conteúdo programático</p>
+    <h2 class="stitle">O que você vai dominar</h2>
+    <div class="sline"></div>
+    <div class="learn-grid">
+      <div class="learn-item"><span class="learn-n">01</span><span class="learn-t">Lei de Propriedade Industrial (LPI) e os tipos de marcas — Nominativa, Figurativa, Mista, Tridimensional e de Posição</span></div>
+      <div class="learn-item"><span class="learn-n">02</span><span class="learn-t">Sistema de Classes (NCL) — como classificar corretamente produtos e serviços no INPI</span></div>
+      <div class="learn-item"><span class="learn-n">03</span><span class="learn-t">Auditoria e análise prévia da marca — evite erros que geram perda de processos e taxas</span></div>
+      <div class="learn-item"><span class="learn-n">04</span><span class="learn-t">Busca prévia investigativa no INPI — encontre conflitos antes de protocolar</span></div>
+      <div class="learn-item"><span class="learn-n">05</span><span class="learn-t">Estratégias de "blindagem" — como criar estratégias infalíveis de proteção de marca</span></div>
+      <div class="learn-item"><span class="learn-n">06</span><span class="learn-t">Uso de Inteligência Artificial para otimizar e agilizar o processo de registro</span></div>
+      <div class="learn-item"><span class="learn-n">07</span><span class="learn-t">Cadastro no e-INPI, emissão da GRU com descontos governamentais e protocolação</span></div>
+      <div class="learn-item"><span class="learn-n">08</span><span class="learn-t">Protocolação completa no e-Marcas e acompanhamento do processo registrado</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- MÓDULOS -->
+<div class="sec sec-w">
+  <div class="sec-inner">
+    <p class="stag">Grade curricular</p>
+    <h2 class="stitle">3 módulos, 15 aulas, do conceito à <em style="font-style:italic;color:#1B3A6B;">protocolação</em></h2>
+    <div class="sline"></div>
+    <div class="mod-list">
+
+      <div class="mod-item">
+        <span class="mod-n">01</span>
+        <div class="mod-info">
+          <div class="mod-title">Fundamentos do Registro no INPI e Tipos de Marcas</div>
+          <div class="mod-aulas">
+            <span class="mod-aula">Aula 00 — Introdução e apresentação do curso</span>
+            <span class="mod-aula">Aula 01 — Princípios fundamentais do registro de marcas</span>
+            <span class="mod-aula">Aula 02 — Tipos e naturezas das marcas</span>
+          </div>
+        </div>
+        <span class="mod-tag">Base</span>
+      </div>
+
+      <div class="mod-item">
+        <span class="mod-n">02</span>
+        <div class="mod-info">
+          <div class="mod-title">Estratégia e Viabilidade</div>
+          <div class="mod-aulas">
+            <span class="mod-aula">Aula 03 — Sistema de Classes (NCL)</span>
+            <span class="mod-aula">Aula 04 — Auditoria e análise prévia da marca</span>
+            <span class="mod-aula">Aula 05 (1/2) — Busca prévia no INPI</span>
+            <span class="mod-aula">Aula 05 (2/2) — Busca prévia no INPI (continuação)</span>
+            <span class="mod-aula">Aula 06 — Tabelas de serviços e valores</span>
+          </div>
+        </div>
+        <span class="mod-tag">Estratégia</span>
+      </div>
+
+      <div class="mod-item">
+        <span class="mod-n">03</span>
+        <div class="mod-info">
+          <div class="mod-title">Registrando a Marca no INPI — Passo a Passo</div>
+          <div class="mod-aulas">
+            <span class="mod-aula">Aula 07 — Aplicando IA para otimizar o registro no INPI</span>
+            <span class="mod-aula">Aula 08 — Cadastro de pessoa física e procurador no INPI</span>
+            <span class="mod-aula">Aula 09 — Buscando cliente e baixando a GRU do INPI</span>
+            <span class="mod-aula">Aula 10 — Documentos e arquivos obrigatórios para o registro</span>
+            <span class="mod-aula">Aulas 11 a 14 — Protocolando o pedido de registro no INPI (passo a passo completo)</span>
+            <span class="mod-aula">Aula 15 — Consultando o processo registrado no INPI</span>
+          </div>
+        </div>
+        <span class="mod-tag">Prático</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- AULA GRATUITA -->
+<div class="sec sec-g" id="aula-gratis">
+  <div class="sec-inner">
+    <p class="stag">Experimente antes de decidir</p>
+    <h2 class="stitle">Assista uma aula <em style="font-style:italic;color:#1B3A6B;">gratuitamente</em></h2>
+    <div class="sline"></div>
+    <p class="sdesc">Conheça a metodologia e o estilo de ensino de Júnior Branquinho antes de decidir.</p>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/a-B1wTGbcMY" title="Aula gratuita — Registro de Marcas no INPI" allowfullscreen loading="lazy"></iframe>
+      <div class="video-cap">
+        <div class="video-dot"></div>
+        <p><strong>Aula introdutória gratuita</strong> — Registro de Marcas no INPI com Júnior Branquinho</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIFERENCIAIS -->
+<div class="sec sec-n">
+  <div class="sec-inner">
+    <p class="stag">Diferenciais do curso</p>
+    <h2 class="stitle stitle-w">Por que este curso é diferente</h2>
+    <div class="sline"></div>
+    <div class="why-grid">
+      <div class="why-item"><div class="why-icon">🎯</div><div class="why-title">100% prático</div><div class="why-desc">Esqueça a teoria maçante — você aprende a atuar estrategicamente e a protocolizar de verdade.</div></div>
+      <div class="why-item"><div class="why-icon">🤖</div><div class="why-title">Uso de IA no processo</div><div class="why-desc">Aprenda a usar Inteligência Artificial para otimizar e agilizar o registro no INPI.</div></div>
+      <div class="why-item"><div class="why-icon">🛡️</div><div class="why-title">Estratégias de blindagem</div><div class="why-desc">Monte estratégias infalíveis de proteção de marca e evite perder processos e taxas.</div></div>
+      <div class="why-item"><div class="why-icon">💻</div><div class="why-title">Passo a passo no e-INPI</div><div class="why-desc">Aulas gravadas diretamente no sistema — você acompanha cada clique em tempo real.</div></div>
+      <div class="why-item"><div class="why-icon">📜</div><div class="why-title">Certificado reconhecido</div><div class="why-desc">Valorize seu currículo e destaque-se como especialista em propriedade intelectual.</div></div>
+      <div class="why-item"><div class="why-icon">🏆</div><div class="why-title">Agente de Registro de Marcas</div><div class="why-desc">Instrutor com vivência prática como Agente de Registro de Marcas e autor publicado.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- INSTRUTOR -->
+<div class="sec sec-w">
+  <div class="sec-inner">
+    <div class="inst-inner">
+      <div class="inst-img">
+        <img src="junior-branquinho.png" alt="Júnior Branquinho">
+      </div>
+      <div>
+        <p class="stag">Seu instrutor</p>
+        <h2 class="inst-name">Júnior Branquinho</h2>
+        <p class="inst-role">Gestor Jurídico · LL.M em Contratos · Agente de Registro de Marcas · Autor · Fundador</p>
+        <div class="sline"></div>
+        <p class="inst-bio">Júnior Branquinho é referência nacional em Gestão de Serviços Judiciais e Notariais. Pós-graduado (LL.M) em Direito Contratual, Agente de Registro de Marcas e autor do livro <em>"Gestão de Serviços Judiciais e Notariais — O Manual da Profissão"</em>, publicado pela Editora Rideel. Fundador do Portal Paralegal e da Academia Paralegal, é Presidente da OGB e 5 anos como Hotmarter com cursos 5 estrelas.</p>
+        <div class="cred-list">
+          <div class="cred-item">Graduado em Gestão de Serviços Judiciais e Notariais</div>
+          <div class="cred-item">LL.M em Direito Contratual</div>
+          <div class="cred-item">Agente de Registro de Marcas credenciado</div>
+          <div class="cred-item">Autor pela Editora Rideel</div>
+          <div class="cred-item">Fundador do Portal Paralegal e da Academia Paralegal</div>
+          <div class="cred-item">Presidente da OGB — Organização dos Gestores Judiciais e Notariais do Brasil</div>
+          <div class="cred-item">5 anos como Hotmarter com cursos 5 estrelas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<div class="cta-sec">
+  <div class="cta-inner">
+    <p class="stag">Pronto para dar o próximo passo?</p>
+    <h2 class="cta-h">Não deixe seu patrimônio <em>desprotegido.</em></h2>
+    <p class="cta-p">A marca é um dos ativos mais valiosos de qualquer negócio. Este curso te ensina a registrar, proteger e monetizar marcas — com a segurança de quem aprendeu na prática.</p>
+    <div class="cta-price"><strong>R$ 199,00</strong> · ou 10x de R$ 19,90</div>
+    <p class="cta-note">🛡 Garantia de 7 dias · Certificado incluso · Acesso vitalício</p>
+    <div class="cta-btns">
+      <a href="https://pay.hotmart.com/F95212737S" class="btn-p">Matricular-se agora</a>
+      <a href="#aula-gratis" class="btn-s">Assistir aula grátis</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
