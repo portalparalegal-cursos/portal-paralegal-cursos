@@ -1,0 +1,341 @@
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+.pp-lp * { box-sizing: border-box; margin: 0; padding: 0; }
+.pp-lp { font-family: 'Barlow', sans-serif; color: #0A1628; width: 100%; }
+.pp-lp a { text-decoration: none; }
+
+/* HERO */
+.pp-hero {
+  background: linear-gradient(135deg, #0A1628 0%, #1B3A6B 60%, #0d2040 100%) !important;
+  padding: 80px 24px !important; position: relative !important; overflow: hidden !important;
+  color: #ffffff !important;
+}
+.pp-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(74,158,222,0.15) 0%, transparent 60%);
+}
+.pp-hero-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; gap: 48px; align-items: center; position: relative; z-index: 2;
+  flex-wrap: wrap;
+}
+.pp-hero-left { flex: 1; min-width: 280px; }
+.pp-hero-right { width: 300px; flex-shrink: 0; }
+.pp-tag {
+  display: inline-block; border: 1px solid rgba(74,158,222,0.4);
+  padding: 6px 16px; margin-bottom: 20px;
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #4A9EDE; font-weight: 500;
+}
+.pp-hero h1 {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: clamp(36px, 4vw, 58px) !important; font-weight: 300 !important;
+  color: #ffffff !important; line-height: 1.15 !important; margin-bottom: 20px !important; letter-spacing: 1px !important;
+}
+.pp-hero h1 em { color: #4A9EDE; font-style: italic; }
+.pp-hero-desc { font-size: 16px !important; color: rgba(255,255,255,0.85) !important; line-height: 1.8 !important; font-weight: 300 !important; margin-bottom: 32px !important; }
+.pp-hero-stats { display: flex; gap: 32px; margin-bottom: 32px; flex-wrap: wrap; }
+.pp-stat { text-align: center; }
+.pp-stat-n { font-family: 'Cormorant Garamond', serif !important; font-size: 32px !important; color: #ffffff !important; font-weight: 300 !important; line-height: 1 !important; }
+.pp-stat-l { font-size: 9px !important; letter-spacing: 2px !important; text-transform: uppercase !important; color: rgba(255,255,255,0.5) !important; margin-top: 3px !important; }
+.pp-stat-div { width: 1px; background: rgba(255,255,255,0.1); align-self: stretch; }
+.pp-btn-primary {
+  display: inline-block; background: #1B3A6B; color: #fff;
+  padding: 15px 36px; font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; font-weight: 600; border: 1px solid #1B3A6B;
+  transition: all 0.3s; margin-right: 12px; margin-bottom: 12px;
+}
+.pp-btn-secondary {
+  display: inline-block; background: transparent; color: #fff;
+  padding: 15px 36px; font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; font-weight: 400; border: 1px solid rgba(255,255,255,0.25);
+  transition: all 0.3s; margin-bottom: 12px;
+}
+
+/* Card preço hero */
+.pp-price-card {
+  background: rgba(255,255,255,0.07) !important; border: 1px solid rgba(74,158,222,0.35) !important;
+  padding: 32px 28px !important; position: relative !important;
+}
+.pp-price-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, #1B3A6B, #4A9EDE);
+}
+.pp-price-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+.pp-price-main { font-family: 'Cormorant Garamond', serif !important; font-size: 48px !important; font-weight: 300 !important; color: #ffffff !important; line-height: 1 !important; margin-bottom: 4px !important; }
+.pp-price-inst { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 300; margin-bottom: 24px; }
+.pp-price-inst strong { color: #4A9EDE; }
+.pp-card-btn {
+  display: block; background: #1B3A6B; color: #fff; text-align: center;
+  padding: 14px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  font-weight: 600; border: 1px solid #1B3A6B; transition: all 0.3s; margin-bottom: 18px;
+}
+.pp-feat-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.pp-feat-list li { display: flex; gap: 10px; font-size: 12px; color: rgba(255,255,255,0.6); font-weight: 300; }
+.pp-feat-list li::before { content: '✓'; color: #4A9EDE; flex-shrink: 0; }
+.pp-guarantee { display: flex; gap: 10px; align-items: flex-start; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.5; }
+
+/* SEÇÕES CLARAS */
+.pp-section { padding: 80px 24px; }
+.pp-section-inner { max-width: 1100px; margin: 0 auto; }
+.pp-section-white { background: #fff; }
+.pp-section-gray { background: #f7f8fa; }
+.pp-section-navy { background: #0A1628; }
+.pp-stag { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #4A9EDE; font-weight: 500; margin-bottom: 10px; }
+.pp-stitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3vw, 42px); font-weight: 300; color: #0A1628; line-height: 1.2; margin-bottom: 12px; }
+.pp-stitle-white { color: #fff; }
+.pp-sline { width: 36px; height: 1px; background: #4A9EDE; margin-bottom: 24px; }
+.pp-sdesc { font-size: 15px; color: #555; font-weight: 300; line-height: 1.8; max-width: 620px; }
+.pp-sdesc-white { color: rgba(255,255,255,0.6); }
+
+/* PARA QUEM */
+.pp-who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; margin-top: 40px; background: #e8edf2; }
+.pp-who-item { background: #fff; padding: 28px 24px; transition: all 0.3s; }
+.pp-who-item:hover { background: #f0f5fb; }
+.pp-who-icon { font-size: 22px; margin-bottom: 10px; }
+.pp-who-title { font-size: 14px; font-weight: 600; color: #0A1628; margin-bottom: 6px; }
+.pp-who-desc { font-size: 13px; color: #666; font-weight: 300; line-height: 1.6; }
+
+/* APRENDE */
+.pp-learn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 40px; background: #e8edf2; }
+.pp-learn-item { background: #f7f8fa; padding: 20px 24px; display: flex; gap: 16px; transition: all 0.3s; }
+.pp-learn-item:hover { background: #eef3f9; }
+.pp-learn-num { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: #c5d4e8; font-weight: 300; flex-shrink: 0; line-height: 1; min-width: 28px; }
+.pp-learn-text { font-size: 13px; color: #444; font-weight: 300; line-height: 1.5; padding-top: 3px; }
+
+/* MÓDULOS */
+.pp-mod-list { display: flex; flex-direction: column; gap: 1px; margin-top: 40px; }
+.pp-mod-item { background: #fff; border: 1px solid #e8edf2; padding: 24px 28px; display: flex; align-items: center; gap: 24px; transition: all 0.3s; }
+.pp-mod-item:hover { border-color: #4A9EDE; background: #f8fbff; }
+.pp-mod-num { font-family: 'Cormorant Garamond', serif; font-size: 38px; color: #dce6f0; font-weight: 300; flex-shrink: 0; min-width: 52px; line-height: 1; }
+.pp-mod-info { flex: 1; }
+.pp-mod-title { font-size: 15px; font-weight: 600; color: #0A1628; margin-bottom: 4px; }
+.pp-mod-desc { font-size: 13px; color: #666; font-weight: 300; }
+.pp-mod-tag { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #4A9EDE; padding: 4px 10px; border: 1px solid #c5d9ef; white-space: nowrap; }
+
+/* VÍDEO */
+.pp-video-wrap { margin-top: 40px; border: 1px solid #e8edf2; overflow: hidden; position: relative; }
+.pp-video-wrap::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #1B3A6B, #4A9EDE); z-index: 1; }
+.pp-video-wrap iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
+.pp-video-cap { padding: 16px 24px; background: #f7f8fa; display: flex; gap: 12px; align-items: center; border-top: 1px solid #e8edf2; }
+.pp-video-dot { width: 6px; height: 6px; background: #4A9EDE; border-radius: 50%; flex-shrink: 0; }
+.pp-video-cap p { font-size: 13px; color: #666; font-weight: 300; }
+.pp-video-cap strong { color: #0A1628; }
+
+/* DIFERENCIAIS */
+.pp-why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; margin-top: 40px; background: rgba(255,255,255,0.05); }
+.pp-why-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(74,158,222,0.1); padding: 28px 20px; text-align: center; transition: all 0.3s; }
+.pp-why-item:hover { background: rgba(74,158,222,0.08); }
+.pp-why-icon { font-size: 26px; margin-bottom: 12px; }
+.pp-why-title { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+.pp-why-desc { font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.6; }
+
+/* INSTRUTOR */
+.pp-inst-inner { display: flex; gap: 64px; align-items: center; flex-wrap: wrap; }
+.pp-inst-img { width: 260px; flex-shrink: 0; position: relative; }
+.pp-inst-img img { width: 100%; display: block; border: 3px solid #e8edf2; }
+.pp-inst-img::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #1B3A6B, #4A9EDE); }
+.pp-inst-name { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 300; color: #0A1628; margin-bottom: 6px; }
+.pp-inst-role { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #4A9EDE; margin-bottom: 20px; }
+.pp-inst-bio { font-size: 15px; color: #555; font-weight: 300; line-height: 1.9; margin-bottom: 24px; }
+.pp-cred-list { display: flex; flex-direction: column; gap: 8px; }
+.pp-cred-item { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: #555; font-weight: 300; }
+.pp-cred-item::before { content: ''; width: 4px; height: 4px; background: #4A9EDE; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+
+/* CTA FINAL */
+.pp-cta-final { background: linear-gradient(135deg, #0A1628, #1B3A6B); padding: 100px 24px; text-align: center; position: relative; overflow: hidden; }
+.pp-cta-final::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 100%, rgba(74,158,222,0.2) 0%, transparent 60%); }
+.pp-cta-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 2; }
+.pp-cta-final h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 50px); font-weight: 300; color: #fff; margin-bottom: 16px; line-height: 1.2; }
+.pp-cta-final p { font-size: 15px; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.8; margin-bottom: 32px; }
+.pp-cta-price { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+.pp-cta-price strong { color: #fff; font-size: 26px; }
+.pp-cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+.pp-divider { width: 1px; background: rgba(255,255,255,0.08); align-self: stretch; }
+
+@media (max-width: 768px) {
+  .pp-hero-right { display: none; }
+  .pp-learn-grid { grid-template-columns: 1fr; }
+  .pp-inst-inner { flex-direction: column; }
+  .pp-inst-img { width: 200px; }
+}
+</style>
+
+<div class="pp-lp">
+
+<!-- HERO ESCURO -->
+<div class="pp-hero">
+  <div class="pp-hero-inner">
+    <div class="pp-hero-left">
+      <div style="margin:-80px -9999px 36px -9999px;padding:0 9999px;overflow:hidden;background:#0A1628;">
+        <img src="https://portalparalegal.wpcomstaging.com/wp-content/uploads/2026/05/Banner-para-loja-online-de-headset.png"
+             alt="Gestão Jurídica Legal Operation"
+             style="width:100%;max-width:1400px;display:block;object-fit:cover;max-height:220px;margin:0 auto;">
+      </div>
+      <div class="pp-tag">Portal Paralegal · Academia Paralegal</div>
+      <p style="font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#4A9EDE;font-weight:500;margin-bottom:14px;">Gestão Jurídica — Legal Operation</p>
+      <h1 class="pp-hero-title" style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,58px);font-weight:300;color:#fff;line-height:1.15;margin-bottom:20px;letter-spacing:1px;">
+        Torne-se o profissional que o mercado jurídico <em style="color:#4A9EDE;font-style:italic;">precisa</em> — e valoriza.
+      </h1>
+      <p class="pp-hero-desc">O departamento jurídico moderno exige muito mais do que conhecimento técnico. Precisa de liderança, processos e estratégia. Este curso transforma você em um Gestor Jurídico completo.</p>
+      <div class="pp-hero-stats">
+        <div class="pp-stat"><div class="pp-stat-n">50</div><div class="pp-stat-l">Aulas</div></div>
+        <div class="pp-stat-div"></div>
+        <div class="pp-stat"><div class="pp-stat-n">4h</div><div class="pp-stat-l">Conteúdo</div></div>
+        <div class="pp-stat-div"></div>
+        <div class="pp-stat"><div class="pp-stat-n">4</div><div class="pp-stat-l">Módulos</div></div>
+        <div class="pp-stat-div"></div>
+        <div class="pp-stat"><div class="pp-stat-n">7d</div><div class="pp-stat-l">Garantia</div></div>
+      </div>
+      <div>
+        <a href="https://pay.hotmart.com/B99079789A" class="pp-btn-primary">Garantir minha vaga</a>
+        <a href="#pp-video" class="pp-btn-secondary">Assistir aula gratuita</a>
+      </div>
+    </div>
+    <div class="pp-hero-right">
+      <div class="pp-price-card">
+        <p class="pp-price-label">Investimento</p>
+        <div class="pp-price-main"><sup style="font-size:20px;vertical-align:top;margin-top:8px;display:inline-block;">R$</sup> 259<span style="font-size:26px;">,00</span></div>
+        <p class="pp-price-inst">ou <strong>12x de R$ 21,59</strong> no cartão</p>
+        <a href="https://pay.hotmart.com/B99079789A" class="pp-card-btn">Matricular-se agora</a>
+        <ul class="pp-feat-list">
+          <li>50 aulas · 4 horas de conteúdo original</li>
+          <li>Certificado de conclusão reconhecido</li>
+          <li>Acesso em qualquer dispositivo</li>
+          <li>E-book exclusivo de apoio</li>
+          <li>Atualizações inclusas</li>
+        </ul>
+        <div class="pp-guarantee">
+          <span style="font-size:18px;">🛡</span>
+          <span><strong style="color:#fff;">Garantia de 7 dias.</strong> Reembolso integral, sem perguntas.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARA QUEM -->
+<div class="pp-section pp-section-white">
+  <div class="pp-section-inner">
+    <p class="pp-stag">Público-alvo</p>
+    <h2 class="pp-stitle">Este curso foi criado para você?</h2>
+    <div class="pp-sline"></div>
+    <p class="pp-sdesc">Se você atua ou quer atuar no universo jurídico — escritórios, empresas ou departamentos — este curso entrega exatamente o que o mercado exige.</p>
+    <div class="pp-who-grid">
+      <div class="pp-who-item"><div class="pp-who-icon">⚖️</div><div class="pp-who-title">Estudantes de Gestão Jurídica</div><div class="pp-who-desc">Que buscam diferencial prático desde a graduação para entrar no mercado com autoridade.</div></div>
+      <div class="pp-who-item"><div class="pp-who-icon">🏛️</div><div class="pp-who-title">Assistentes e Auxiliares Jurídicos</div><div class="pp-who-desc">Que querem crescer para posições de gestão e liderança dentro do ambiente jurídico.</div></div>
+      <div class="pp-who-item"><div class="pp-who-icon">📋</div><div class="pp-who-title">Graduados em Direito e Administração</div><div class="pp-who-desc">Que desejam dominar a visão estratégica e operacional do setor jurídico.</div></div>
+      <div class="pp-who-item"><div class="pp-who-icon">🚀</div><div class="pp-who-title">Profissionais em transição de carreira</div><div class="pp-who-desc">Que querem se destacar em processos seletivos com formação prática e reconhecida.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- O QUE APRENDE -->
+<div class="pp-section pp-section-gray">
+  <div class="pp-section-inner">
+    <p class="pp-stag">Conteúdo programático</p>
+    <h2 class="pp-stitle">O que você vai dominar</h2>
+    <div class="pp-sline"></div>
+    <div class="pp-learn-grid">
+      <div class="pp-learn-item"><span class="pp-learn-num">01</span><span class="pp-learn-text">Estrutura organizacional de escritórios de advocacia e departamentos jurídicos</span></div>
+      <div class="pp-learn-item"><span class="pp-learn-num">02</span><span class="pp-learn-text">Planejamento estratégico, liderança e delegação de tarefas jurídicas</span></div>
+      <div class="pp-learn-item"><span class="pp-learn-num">03</span><span class="pp-learn-text">Gestão de equipe, controle de prazos, produtividade e fluxos operacionais</span></div>
+      <div class="pp-learn-item"><span class="pp-learn-num">04</span><span class="pp-learn-text">CLOC e CORE 12 — os frameworks internacionais de Legal Operations</span></div>
+      <div class="pp-learn-item"><span class="pp-learn-num">05</span><span class="pp-learn-text">Controladoria Jurídica e indicadores de desempenho (KPIs jurídicos)</span></div>
+      <div class="pp-learn-item"><span class="pp-learn-num">06</span><span class="pp-learn-text">Ferramentas práticas para organizar o jurídico interno e externo</span></div>
+      <div class="pp-learn-item"><span class="pp-learn-num">07</span><span class="pp-learn-text">Compliance, relatórios, manuais e boas práticas de governança jurídica</span></div>
+      <div class="pp-learn-item"><span class="pp-learn-num">08</span><span class="pp-learn-text">Tecnologia e inovação aplicadas à gestão jurídica moderna</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- MÓDULOS -->
+<div class="pp-section pp-section-white">
+  <div class="pp-section-inner">
+    <p class="pp-stag">Grade curricular</p>
+    <h2 class="pp-stitle">4 módulos, 50 aulas, resultados reais</h2>
+    <div class="pp-sline"></div>
+    <div class="pp-mod-list">
+      <div class="pp-mod-item"><span class="pp-mod-num">01</span><div class="pp-mod-info"><div class="pp-mod-title">Introdução à Gestão Jurídica</div><div class="pp-mod-desc">Fundamentos, estrutura do mercado e visão geral do papel do gestor jurídico</div></div><span class="pp-mod-tag">Base</span></div>
+      <div class="pp-mod-item"><span class="pp-mod-num">02</span><div class="pp-mod-info"><div class="pp-mod-title">Ferramentas e Tecnologia na Gestão Jurídica</div><div class="pp-mod-desc">Sistemas, automações, dashboards e recursos práticos para o dia a dia</div></div><span class="pp-mod-tag">Prático</span></div>
+      <div class="pp-mod-item"><span class="pp-mod-num">03</span><div class="pp-mod-info"><div class="pp-mod-title">Habilidades de Liderança e Comunicação</div><div class="pp-mod-desc">Gestão de pessoas, delegação, resolução de conflitos e liderança jurídica</div></div><span class="pp-mod-tag">Liderança</span></div>
+      <div class="pp-mod-item"><span class="pp-mod-num">04</span><div class="pp-mod-info"><div class="pp-mod-title">Aspectos Legais da Gestão Jurídica</div><div class="pp-mod-desc">Compliance, governança, ética profissional e responsabilidades do gestor</div></div><span class="pp-mod-tag">Avançado</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- AULA GRATUITA -->
+<div class="pp-section pp-section-gray" id="pp-video">
+  <div class="pp-section-inner">
+    <p class="pp-stag">Experimente antes de decidir</p>
+    <h2 class="pp-stitle">Assista uma aula <em style="font-style:italic;color:#1B3A6B;">gratuitamente</em></h2>
+    <div class="pp-sline"></div>
+    <p class="pp-sdesc" style="margin-bottom:0;">Conheça a metodologia e o estilo de ensino de Júnior Branquinho antes de decidir.</p>
+    <div class="pp-video-wrap">
+      <iframe src="https://www.youtube.com/embed/hEQOz9o6KLw" title="Aula gratuita — Gestão Jurídica" allowfullscreen loading="lazy"></iframe>
+      <div class="pp-video-cap">
+        <div class="pp-video-dot"></div>
+        <p><strong>Aula introdutória gratuita</strong> — Gestão Jurídica · Legal Operation com Júnior Branquinho</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIFERENCIAIS -->
+<div class="pp-section pp-section-navy">
+  <div class="pp-section-inner">
+    <p class="pp-stag">Diferenciais do curso</p>
+    <h2 class="pp-stitle pp-stitle-white">Por que este curso é diferente</h2>
+    <div class="pp-sline"></div>
+    <div class="pp-why-grid">
+      <div class="pp-why-item"><div class="pp-why-icon">🎯</div><div class="pp-why-title">Conteúdo de mercado real</div><div class="pp-why-desc">Baseado em experiências reais — não apenas teoria acadêmica.</div></div>
+      <div class="pp-why-item"><div class="pp-why-icon">⚡</div><div class="pp-why-title">Aplicável desde o módulo 1</div><div class="pp-why-desc">Ensinamentos práticos que você implementa imediatamente.</div></div>
+      <div class="pp-why-item"><div class="pp-why-icon">📜</div><div class="pp-why-title">Certificado reconhecido</div><div class="pp-why-desc">Valorize seu currículo e destaque-se nos processos seletivos.</div></div>
+      <div class="pp-why-item"><div class="pp-why-icon">📱</div><div class="pp-why-title">Estude onde quiser</div><div class="pp-why-desc">Acesso em qualquer dispositivo, no seu ritmo.</div></div>
+      <div class="pp-why-item"><div class="pp-why-icon">📖</div><div class="pp-why-title">E-book exclusivo</div><div class="pp-why-desc">Material de apoio para aprofundar o estudo.</div></div>
+      <div class="pp-why-item"><div class="pp-why-icon">🏆</div><div class="pp-why-title">Referência nacional</div><div class="pp-why-desc">Criado pelo fundador do maior canal paralegal do Brasil.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- INSTRUTOR -->
+<div class="pp-section pp-section-white">
+  <div class="pp-section-inner">
+    <div class="pp-inst-inner">
+      <div class="pp-inst-img">
+        <img src="https://portalparalegal.wpcomstaging.com/wp-content/uploads/2026/05/Junior-Branquinho-Foto-Livro-1.png" alt="Júnior Branquinho">
+      </div>
+      <div style="flex:1;min-width:260px;">
+        <p class="pp-stag">Seu instrutor</p>
+        <h2 class="pp-inst-name">Júnior Branquinho</h2>
+        <p class="pp-inst-role">Gestor Jurídico · LL.M em Contratos · Autor · Fundador</p>
+        <div class="pp-sline"></div>
+        <p class="pp-inst-bio">Júnior Branquinho é referência nacional em Gestão de Serviços Judiciais e Notariais. Pós-graduado (LL.M) em Direito Contratual, é autor do livro <em>"Gestão de Serviços Judiciais e Notariais — O Manual da Profissão"</em>, publicado pela Editora Rideel, fundador do Portal Paralegal e Presidente da OGB.</p>
+        <div class="pp-cred-list">
+          <div class="pp-cred-item">Graduado em Gestão de Serviços Judiciais e Notariais</div>
+          <div class="pp-cred-item">LL.M em Direito Contratual</div>
+          <div class="pp-cred-item">Autor pela Editora Rideel</div>
+          <div class="pp-cred-item">Fundador do Portal Paralegal e da Academia Paralegal</div>
+          <div class="pp-cred-item">Presidente da OGB — Organização dos Gestores Judiciais e Notariais do Brasil</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<div class="pp-cta-final">
+  <div class="pp-cta-inner">
+    <p class="pp-stag">Pronto para dar o próximo passo?</p>
+    <h2>Garanta sua vaga e comece sua transformação <em style="color:#4A9EDE;font-style:italic;">hoje.</em></h2>
+    <p>O mercado jurídico valoriza quem domina a gestão. Este curso entrega as ferramentas, o conhecimento e a credibilidade que você precisa para se destacar.</p>
+    <div class="pp-cta-price"><strong>R$ 259,00</strong> · ou 12x de R$ 21,59 no cartão</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:6px;">🛡 Garantia de 7 dias · Certificado incluso · Acesso vitalício</div>
+    <div class="pp-cta-btns">
+      <a href="https://pay.hotmart.com/B99079789A" class="pp-btn-primary">Matricular-se agora</a>
+      <a href="#pp-video" class="pp-btn-secondary">Assistir aula grátis</a>
+    </div>
+  </div>
+</div>
+
+</div>
