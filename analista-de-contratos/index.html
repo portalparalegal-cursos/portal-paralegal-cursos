@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analista de Contratos — Teoria Geral e Prática Contratual | Portal Paralegal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Barlow', sans-serif; background: #080808; color: #fff; overflow-x: hidden; }
+a { text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* VARIÁVEIS */
+:root {
+  --navy: #0A1628;
+  --navy-mid: #1B3A6B;
+  --blue: #4A9EDE;
+  --white: #fff;
+  --gray: #888;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #040D1A 0%, #0A1628 55%, #0D2040 100%);
+  padding: 60px 40px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(74,158,222,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--blue), transparent);
+}
+.hero-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 60px;
+  align-items: start;
+  position: relative; z-index: 2;
+}
+.tag {
+  display: inline-block;
+  border: 1px solid rgba(74,158,222,0.35);
+  padding: 6px 16px; margin-bottom: 24px;
+  font-size: 10px; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--blue); font-weight: 500;
+}
+.course-label {
+  font-size: 11px; letter-spacing: 6px;
+  text-transform: uppercase; color: var(--blue);
+  font-weight: 500; margin-bottom: 12px;
+}
+.course-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(60px, 7vw, 96px);
+  font-weight: 300; line-height: 0.92;
+  color: #fff; letter-spacing: 2px;
+  margin-bottom: 0;
+}
+.course-subtitle-row {
+  display: flex; align-items: center;
+  gap: 16px; margin: 12px 0 32px;
+}
+.course-subtitle-line { height: 1px; width: 48px; background: var(--blue); flex-shrink: 0; }
+.course-subtitle-text {
+  font-size: 13px; letter-spacing: 5px;
+  text-transform: uppercase; color: var(--blue);
+  font-weight: 400;
+}
+.hero-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 2.5vw, 30px);
+  font-weight: 300; color: #fff;
+  line-height: 1.35; margin-bottom: 16px;
+}
+.hero-headline em { color: var(--blue); font-style: italic; }
+.hero-desc {
+  font-size: 16px; color: rgba(255,255,255,0.65);
+  line-height: 1.8; font-weight: 300; margin-bottom: 36px;
+  max-width: 560px;
+}
+.stats-row { display: flex; gap: 32px; margin-bottom: 36px; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px; color: #fff; font-weight: 300; line-height: 1;
+}
+.stat-l {
+  font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,0.4);
+  margin-top: 4px;
+}
+.stat-div { width: 1px; background: rgba(255,255,255,0.1); align-self: stretch; }
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-p {
+  background: var(--navy-mid); color: #fff;
+  padding: 15px 36px; font-size: 11px;
+  letter-spacing: 3px; text-transform: uppercase;
+  font-weight: 600; border: 1px solid var(--navy-mid);
+  transition: all 0.3s; cursor: pointer;
+}
+.btn-p:hover { background: var(--blue); border-color: var(--blue); color: #000; }
+.btn-s {
+  background: transparent; color: #fff;
+  padding: 15px 36px; font-size: 11px;
+  letter-spacing: 3px; text-transform: uppercase;
+  font-weight: 400; border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s; cursor: pointer;
+}
+.btn-s:hover { border-color: var(--blue); color: var(--blue); }
+
+/* PRICE CARD */
+.price-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(74,158,222,0.25);
+  padding: 32px 28px; position: relative;
+}
+.price-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--navy-mid), var(--blue));
+}
+.price-lbl { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+.price-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px; font-weight: 300; color: #fff;
+  line-height: 1; margin-bottom: 4px;
+}
+.price-val sup { font-size: 22px; vertical-align: top; margin-top: 10px; display: inline-block; }
+.price-inst { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
+.price-inst strong { color: var(--blue); }
+.card-cta {
+  display: block; background: var(--navy-mid); color: #fff;
+  text-align: center; padding: 15px;
+  font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; font-weight: 600;
+  border: 1px solid var(--navy-mid); transition: all 0.3s; margin-bottom: 20px;
+}
+.card-cta:hover { background: var(--blue); border-color: var(--blue); color: #000; }
+.card-feats { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.card-feats li {
+  display: flex; gap: 10px;
+  font-size: 12px; color: rgba(255,255,255,0.6); font-weight: 300;
+}
+.card-feats li::before { content: '✓'; color: var(--blue); flex-shrink: 0; }
+.card-sep { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 16px 0; }
+.card-guar {
+  display: flex; gap: 10px; align-items: flex-start;
+  font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5;
+}
+
+/* SEÇÕES */
+.sec { padding: 90px 40px; }
+.sec-w { background: #fff; }
+.sec-g { background: #f7f8fa; }
+.sec-n { background: #0A1628; }
+.sec-d { background: #080808; }
+.sec-inner { max-width: 1100px; margin: 0 auto; }
+.stag { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--blue); font-weight: 500; margin-bottom: 10px; }
+.stitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 300; line-height: 1.2; margin-bottom: 12px; color: #0A1628; }
+.stitle-w { color: #fff; }
+.sline { width: 36px; height: 1px; background: var(--blue); margin-bottom: 24px; }
+.sdesc { font-size: 15px; color: #555; font-weight: 300; line-height: 1.8; max-width: 620px; }
+.sdesc-w { color: rgba(255,255,255,0.6); }
+
+/* PARA QUEM */
+.who-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 40px; background: #e0e8f0; }
+.who-item { background: #fff; padding: 28px 22px; transition: 0.3s; }
+.who-item:hover { background: #f0f6ff; }
+.who-icon { font-size: 22px; margin-bottom: 10px; }
+.who-title { font-size: 14px; font-weight: 600; color: #0A1628; margin-bottom: 6px; }
+.who-desc { font-size: 13px; color: #666; font-weight: 300; line-height: 1.6; }
+
+/* APRENDE */
+.learn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 40px; background: #e0e8f0; }
+.learn-item { background: #f7f8fa; padding: 20px 22px; display: flex; gap: 14px; transition: 0.3s; }
+.learn-item:hover { background: #eef3fb; }
+.learn-n { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: #c5d4e8; font-weight: 300; flex-shrink: 0; line-height: 1; min-width: 28px; }
+.learn-t { font-size: 13px; color: #444; font-weight: 300; line-height: 1.5; padding-top: 3px; }
+
+/* MÓDULOS */
+.mod-list { display: flex; flex-direction: column; gap: 1px; margin-top: 40px; }
+.mod-item { background: #fff; border: 1px solid #e0e8f0; padding: 22px 26px; display: flex; align-items: center; gap: 20px; transition: 0.3s; }
+.mod-item:hover { border-color: var(--blue); background: #f8fbff; }
+.mod-n { font-family: 'Cormorant Garamond', serif; font-size: 38px; color: #d8e4f0; font-weight: 300; flex-shrink: 0; min-width: 52px; line-height: 1; }
+.mod-info { flex: 1; }
+.mod-title { font-size: 15px; font-weight: 600; color: #0A1628; margin-bottom: 4px; }
+.mod-desc { font-size: 13px; color: #666; font-weight: 300; }
+.mod-tag { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); padding: 4px 10px; border: 1px solid #c5d9ef; white-space: nowrap; flex-shrink: 0; }
+
+/* VÍDEO */
+.video-wrap { margin-top: 40px; border: 1px solid #e0e8f0; overflow: hidden; position: relative; }
+.video-wrap::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #1B3A6B, var(--blue)); z-index: 1; }
+.video-wrap iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
+.video-cap { padding: 14px 22px; background: #f7f8fa; display: flex; gap: 12px; align-items: center; border-top: 1px solid #e0e8f0; }
+.video-dot { width: 6px; height: 6px; background: var(--blue); border-radius: 50%; flex-shrink: 0; }
+.video-cap p { font-size: 13px; color: #666; font-weight: 300; }
+.video-cap strong { color: #0A1628; }
+
+/* DIFERENCIAIS */
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 40px; background: rgba(255,255,255,0.04); }
+.why-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(74,158,222,0.1); padding: 28px 20px; text-align: center; transition: 0.3s; }
+.why-item:hover { background: rgba(74,158,222,0.07); }
+.why-icon { font-size: 26px; margin-bottom: 12px; }
+.why-title { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+.why-desc { font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.6; }
+
+/* INSTRUTOR */
+.inst-inner { display: grid; grid-template-columns: 280px 1fr; gap: 64px; align-items: center; }
+.inst-img { position: relative; }
+.inst-img img { width: 100%; border: 3px solid #e0e8f0; }
+.inst-img::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #1B3A6B, var(--blue)); }
+.inst-name { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; color: #0A1628; margin-bottom: 6px; }
+.inst-role { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--blue); margin-bottom: 20px; }
+.inst-bio { font-size: 15px; color: #555; font-weight: 300; line-height: 1.9; margin-bottom: 24px; }
+.cred-list { display: flex; flex-direction: column; gap: 8px; }
+.cred-item { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: #555; font-weight: 300; }
+.cred-item::before { content: ''; width: 4px; height: 4px; background: var(--blue); border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+
+/* CTA FINAL */
+.cta-sec {
+  background: linear-gradient(135deg, #040D1A, #0A1628, #0D2040);
+  padding: 100px 40px; text-align: center; position: relative; overflow: hidden;
+}
+.cta-sec::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 100%, rgba(74,158,222,0.18) 0%, transparent 60%); }
+.cta-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 2; }
+.cta-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 300; color: #fff; margin-bottom: 16px; line-height: 1.2; }
+.cta-h em { color: var(--blue); font-style: italic; }
+.cta-p { font-size: 15px; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.8; margin-bottom: 32px; }
+.cta-price { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+.cta-price strong { color: #fff; font-size: 28px; }
+.cta-note { font-size: 12px; color: rgba(255,255,255,0.3); margin-bottom: 28px; }
+.cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+
+/* ============================
+   RESPONSIVO — TABLET (≤ 900px)
+   ============================ */
+@media (max-width: 900px) {
+  .hero { padding: 48px 28px 64px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  .price-card { max-width: 100%; }
+  .who-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .inst-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+  .inst-img { max-width: 240px; margin: 0 auto; }
+  .cred-list { align-items: center; }
+  .cred-item { justify-content: center; }
+}
+
+/* ============================
+   RESPONSIVO — SMARTPHONE (≤ 600px)
+   ============================ */
+@media (max-width: 600px) {
+
+  /* — Hero — */
+  .hero { padding: 40px 20px 56px; }
+  .tag { font-size: 11px; letter-spacing: 2px; padding: 7px 14px; }
+  .course-label { font-size: 12px; letter-spacing: 4px; }
+  .course-title { font-size: 52px !important; letter-spacing: 1px; }
+  .course-subtitle-text { font-size: 12px; letter-spacing: 3px; }
+  .hero-headline { font-size: 22px !important; line-height: 1.4; }
+  .hero-desc { font-size: 16px !important; line-height: 1.85; }
+
+  /* — Métricas — */
+  .stats-row { gap: 12px; justify-content: center; }
+  .stat-n { font-size: 32px !important; }
+  .stat-l { font-size: 10px; letter-spacing: 1px; }
+  .stat-div { display: none; }
+
+  /* — Botões hero — */
+  .btn-row { flex-direction: column; gap: 12px; }
+  .btn-p, .btn-s {
+    width: 100%;
+    text-align: center;
+    padding: 18px 20px;
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+
+  /* — Price card — */
+  .price-card { padding: 28px 20px; }
+  .price-lbl { font-size: 11px; }
+  .price-val { font-size: 54px !important; }
+  .price-inst { font-size: 15px; margin-bottom: 20px; }
+  .card-cta {
+    padding: 18px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 22px;
+  }
+  .card-feats li { font-size: 14px; gap: 12px; line-height: 1.5; }
+  .card-guar { font-size: 14px; gap: 12px; }
+
+  /* — Seções gerais — */
+  .sec { padding: 56px 20px; }
+  .stag { font-size: 11px; letter-spacing: 3px; }
+  .stitle { font-size: 28px !important; line-height: 1.25; }
+  .sdesc { font-size: 15px; line-height: 1.85; }
+  .sline { margin-bottom: 28px; }
+
+  /* — Para quem — */
+  .who-grid { grid-template-columns: 1fr; gap: 0; }
+  .who-item { padding: 24px 20px; }
+  .who-icon { font-size: 28px; margin-bottom: 10px; }
+  .who-title { font-size: 16px; margin-bottom: 8px; }
+  .who-desc { font-size: 14px; line-height: 1.7; }
+
+  /* — Conteúdo programático — */
+  .learn-grid { grid-template-columns: 1fr; }
+  .learn-item { padding: 18px 16px; }
+  .learn-n { font-size: 28px; min-width: 32px; }
+  .learn-t { font-size: 15px; line-height: 1.6; }
+
+  /* — Módulos — */
+  .mod-item { flex-wrap: wrap; gap: 12px; padding: 20px 18px; }
+  .mod-tag { order: -1; font-size: 10px; padding: 5px 12px; }
+  .mod-n { font-size: 34px; min-width: 44px; }
+  .mod-title { font-size: 16px; margin-bottom: 5px; }
+  .mod-desc { font-size: 13px; line-height: 1.5; }
+
+  /* — Vídeo — */
+  .video-cap { padding: 14px 16px; }
+  .video-cap p { font-size: 14px; line-height: 1.55; }
+
+  /* — Diferenciais — */
+  .why-grid { grid-template-columns: 1fr; }
+  .why-item { padding: 28px 20px; }
+  .why-icon { font-size: 32px; margin-bottom: 14px; }
+  .why-title { font-size: 16px; margin-bottom: 8px; }
+  .why-desc { font-size: 14px; line-height: 1.7; }
+
+  /* — Instrutor — */
+  .inst-inner { text-align: center; }
+  .inst-img {
+    max-width: 220px !important;
+    margin: 0 auto 28px;
+  }
+  .inst-name { font-size: 36px !important; }
+  .inst-role { font-size: 11px; letter-spacing: 2px; margin-bottom: 18px; }
+  .inst-bio { font-size: 15px; line-height: 1.85; }
+  .cred-list { align-items: flex-start; }
+  .cred-item { font-size: 14px; line-height: 1.6; }
+
+  /* — CTA final — */
+  .cta-sec { padding: 68px 20px; }
+  .cta-h { font-size: 30px !important; line-height: 1.3; }
+  .cta-p { font-size: 16px; line-height: 1.8; }
+  .cta-price { font-size: 16px; }
+  .cta-price strong { font-size: 30px; }
+  .cta-note { font-size: 13px; margin-bottom: 28px; }
+  .cta-btns { flex-direction: column; align-items: stretch; gap: 12px; }
+  .cta-btns a { width: 100%; text-align: center; padding: 18px 20px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="tag">Portal Paralegal · Academia Paralegal</div>
+      <p class="course-label">Curso completo</p>
+      <h1 class="course-title">Analista de<br>Contratos</h1>
+      <div class="course-subtitle-row">
+        <div class="course-subtitle-line"></div>
+        <p class="course-subtitle-text">Teoria Geral e Prática Contratual</p>
+      </div>
+      <h2 class="hero-headline">O curso <em>mais bem avaliado da Hotmart</em> na área jurídica — domine contratos e torne-se indispensável.</h2>
+      <p class="hero-desc">Elaborar, analisar e revisar contratos com segurança é uma das habilidades mais valorizadas no mercado jurídico. Este curso te transforma em um especialista completo, da teoria à prática contratual.</p>
+      <div class="stats-row">
+        <div class="stat"><div class="stat-n">143</div><div class="stat-l">Aulas</div></div>
+        <div class="stat-div"></div>
+        <div class="stat"><div class="stat-n">60h</div><div class="stat-l">Conteúdo</div></div>
+        <div class="stat-div"></div>
+        <div class="stat"><div class="stat-n">12</div><div class="stat-l">Módulos</div></div>
+        <div class="stat-div"></div>
+        <div class="stat"><div class="stat-n">7d</div><div class="stat-l">Garantia</div></div>
+      </div>
+      <div class="btn-row">
+        <a href="https://pay.hotmart.com/A62358936S" class="btn-p">Garantir minha vaga</a>
+        <a href="#aula-gratis" class="btn-s">Assistir aula gratuita</a>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <p class="price-lbl">Investimento</p>
+      <div class="price-val"><sup>R$</sup> 259<span style="font-size:28px;">,00</span></div>
+      <p class="price-inst">ou <strong>12x de R$ 21,59</strong> no cartão</p>
+      <a href="https://pay.hotmart.com/A62358936S" class="card-cta">Matricular-se agora</a>
+      <ul class="card-feats">
+        <li>143 aulas · 60 horas de conteúdo original</li>
+        <li>Certificado de conclusão reconhecido</li>
+        <li>Acesso em qualquer dispositivo</li>
+        <li>Modelos de contratos reais para praticar</li>
+        <li>100% de avaliações positivas na Hotmart</li>
+      </ul>
+      <hr class="card-sep">
+      <div class="card-guar"><span style="font-size:18px;">🛡</span><span><strong style="color:#fff;">Garantia de 7 dias.</strong> Reembolso integral, sem perguntas.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PARA QUEM -->
+<div class="sec sec-w">
+  <div class="sec-inner">
+    <p class="stag">Público-alvo</p>
+    <h2 class="stitle">Este curso foi criado para você?</h2>
+    <div class="sline"></div>
+    <p class="sdesc">Se você atua ou quer atuar com contratos — escritórios, imobiliárias, cartórios, empresas ou departamentos jurídicos — este curso entrega exatamente o que o mercado exige.</p>
+    <div class="who-grid">
+      <div class="who-item"><div class="who-icon">⚖️</div><div class="who-title">Estudantes e graduados em Direito</div><div class="who-desc">Que buscam dominar a teoria e a prática contratual para atuar com segurança no mercado.</div></div>
+      <div class="who-item"><div class="who-icon">🏛️</div><div class="who-title">Assistentes e Auxiliares Jurídicos</div><div class="who-desc">Que precisam elaborar, revisar e analisar contratos com confiança e precisão técnica.</div></div>
+      <div class="who-item"><div class="who-icon">🏢</div><div class="who-title">Profissionais de Imobiliárias e Cartórios</div><div class="who-desc">Que lidam diariamente com contratos de locação, compra, venda, fiança e alienação.</div></div>
+      <div class="who-item"><div class="who-icon">📋</div><div class="who-title">Administradores e Contadores</div><div class="who-desc">Que precisam entender cláusulas contratuais para proteger seus clientes e negócios.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- O QUE APRENDE -->
+<div class="sec sec-g">
+  <div class="sec-inner">
+    <p class="stag">Conteúdo programático</p>
+    <h2 class="stitle">O que você vai dominar</h2>
+    <div class="sline"></div>
+    <div class="learn-grid">
+      <div class="learn-item"><span class="learn-n">01</span><span class="learn-t">Teoria Geral dos Contratos — conceito, sinalágma e diálogo das fontes</span></div>
+      <div class="learn-item"><span class="learn-n">02</span><span class="learn-t">A Escada Ponteana — pré-contrato, negociações e responsabilidade pré-contratual</span></div>
+      <div class="learn-item"><span class="learn-n">03</span><span class="learn-t">Classificações dos contratos — típicos, atípicos, bilaterais, unilaterais e mistos</span></div>
+      <div class="learn-item"><span class="learn-n">04</span><span class="learn-t">Princípios contratuais — boa-fé objetiva, função social e autonomia da vontade</span></div>
+      <div class="learn-item"><span class="learn-n">05</span><span class="learn-t">Formação e efeitos dos contratos — proposta, aceitação, vícios e nulidades</span></div>
+      <div class="learn-item"><span class="learn-n">06</span><span class="learn-t">Extinção contratual — rescisão, resolução, resilição e distrato</span></div>
+      <div class="learn-item"><span class="learn-n">07</span><span class="learn-t">Formatação profissional de contratos — estrutura, cláusulas essenciais e redação jurídica</span></div>
+      <div class="learn-item"><span class="learn-n">08</span><span class="learn-t">Due Diligence contratual — como revisar e identificar riscos em contratos</span></div>
+      <div class="learn-item"><span class="learn-n">09</span><span class="learn-t">Contratos de Prestação de Serviços — elaboração prática e cláusulas críticas</span></div>
+      <div class="learn-item"><span class="learn-n">10</span><span class="learn-t">Locação de Bens Móveis e Imóveis — modalidades, garantias e especificidades</span></div>
+      <div class="learn-item"><span class="learn-n">11</span><span class="learn-t">Fiança e contratos imobiliários — análise e elaboração segura</span></div>
+      <div class="learn-item"><span class="learn-n">12</span><span class="learn-t">Compra e Venda de Veículos Usados — contrato completo e proteção das partes</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- MÓDULOS -->
+<div class="sec sec-w">
+  <div class="sec-inner">
+    <p class="stag">Grade curricular</p>
+    <h2 class="stitle">12 módulos, 143 aulas, resultados reais</h2>
+    <div class="sline"></div>
+    <div class="mod-list">
+      <div class="mod-item"><span class="mod-n">00</span><div class="mod-info"><div class="mod-title">Considerações Iniciais</div><div class="mod-desc">Orientações, metodologia e apresentação do curso</div></div><span class="mod-tag">Base</span></div>
+      <div class="mod-item"><span class="mod-n">01</span><div class="mod-info"><div class="mod-title">Conceito de Contrato, Sinalágma e Diálogo das Fontes</div><div class="mod-desc">Fundamentos essenciais da teoria contratual</div></div><span class="mod-tag">Base</span></div>
+      <div class="mod-item"><span class="mod-n">02</span><div class="mod-info"><div class="mod-title">A Escada Ponteana</div><div class="mod-desc">Existência, validade e eficácia do negócio jurídico</div></div><span class="mod-tag">Base</span></div>
+      <div class="mod-item"><span class="mod-n">03</span><div class="mod-info"><div class="mod-title">Classificações dos Contratos</div><div class="mod-desc">Tipologia contratual e suas implicações práticas</div></div><span class="mod-tag">Teoria</span></div>
+      <div class="mod-item"><span class="mod-n">04</span><div class="mod-info"><div class="mod-title">Princípios Contratuais</div><div class="mod-desc">Boa-fé, função social, equilíbrio e autonomia da vontade</div></div><span class="mod-tag">Base</span></div>
+      <div class="mod-item"><span class="mod-n">05</span><div class="mod-info"><div class="mod-title">Formação e Efeitos dos Contratos</div><div class="mod-desc">Proposta, aceitação, vícios do consentimento e nulidades</div></div><span class="mod-tag">Prático</span></div>
+      <div class="mod-item"><span class="mod-n">06</span><div class="mod-info"><div class="mod-title">Extinção dos Contratos</div><div class="mod-desc">Rescisão, resolução, resilição e formas de extinção</div></div><span class="mod-tag">Avançado</span></div>
+      <div class="mod-item"><span class="mod-n">07</span><div class="mod-info"><div class="mod-title">Formatação dos Contratos</div><div class="mod-desc">Estrutura profissional e redação de cláusulas eficazes</div></div><span class="mod-tag">Prático</span></div>
+      <div class="mod-item"><span class="mod-n">08</span><div class="mod-info"><div class="mod-title">Due Diligence para Contratos</div><div class="mod-desc">Revisão, análise de riscos e identificação de falhas contratuais</div></div><span class="mod-tag">Avançado</span></div>
+      <div class="mod-item"><span class="mod-n">09</span><div class="mod-info"><div class="mod-title">Contrato de Prestação de Serviços</div><div class="mod-desc">Elaboração prática e cláusulas críticas para proteção</div></div><span class="mod-tag">Contrato</span></div>
+      <div class="mod-item"><span class="mod-n">10</span><div class="mod-info"><div class="mod-title">Contrato de Locação de Bens Móveis</div><div class="mod-desc">Modalidades, garantias e especificidades da locação de coisas</div></div><span class="mod-tag">Contrato</span></div>
+      <div class="mod-item"><span class="mod-n">11</span><div class="mod-info"><div class="mod-title">Contrato de Locação de Imóvel e de Fiança</div><div class="mod-desc">Contrato completo, garantias locatícias e modalidades de fiança</div></div><span class="mod-tag">Contrato</span></div>
+      <div class="mod-item"><span class="mod-n">12</span><div class="mod-info"><div class="mod-title">Compra e Venda de Veículos Usados</div><div class="mod-desc">Elaboração do contrato completo e proteção das partes</div></div><span class="mod-tag">Contrato</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- AULA GRATUITA -->
+<div class="sec sec-g" id="aula-gratis">
+  <div class="sec-inner">
+    <p class="stag">Experimente antes de decidir</p>
+    <h2 class="stitle">Assista uma aula <em style="font-style:italic;color:#1B3A6B;">gratuitamente</em></h2>
+    <div class="sline"></div>
+    <p class="sdesc">Conheça a metodologia e o estilo de ensino de Júnior Branquinho antes de decidir.</p>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/zksSZD8v4qI" title="Aula gratuita — Analista de Contratos" allowfullscreen loading="lazy"></iframe>
+      <div class="video-cap">
+        <div class="video-dot"></div>
+        <p><strong>Aula introdutória gratuita</strong> — Analista de Contratos · Teoria Geral e Prática Contratual com Júnior Branquinho</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIFERENCIAIS -->
+<div class="sec sec-n">
+  <div class="sec-inner">
+    <p class="stag">Diferenciais do curso</p>
+    <h2 class="stitle stitle-w">Por que este curso é diferente</h2>
+    <div class="sline"></div>
+    <div class="why-grid">
+      <div class="why-item"><div class="why-icon">⭐</div><div class="why-title">Mais bem avaliado da Hotmart</div><div class="why-desc">Nota 5.0 com 100% de avaliações positivas — aprovação real dos alunos.</div></div>
+      <div class="why-item"><div class="why-icon">📄</div><div class="why-title">Contratos reais e casos práticos</div><div class="why-desc">Aprenda com contratos reais e casos fictícios que simulam situações do mercado.</div></div>
+      <div class="why-item"><div class="why-icon">🗂️</div><div class="why-title">Modelos prontos para usar</div><div class="why-desc">Acesso a modelos de contratos reais usados nas aulas para aplicar imediatamente.</div></div>
+      <div class="why-item"><div class="why-icon">📜</div><div class="why-title">Certificado reconhecido</div><div class="why-desc">Valorize seu currículo e destaque-se nos processos seletivos.</div></div>
+      <div class="why-item"><div class="why-icon">📱</div><div class="why-title">Estude onde quiser</div><div class="why-desc">Acesso em qualquer dispositivo, no seu ritmo e horário.</div></div>
+      <div class="why-item"><div class="why-icon">🏆</div><div class="why-title">Referência nacional</div><div class="why-desc">Criado pelo fundador do maior canal paralegal do Brasil.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- INSTRUTOR -->
+<div class="sec sec-w">
+  <div class="sec-inner">
+    <div class="inst-inner">
+      <div class="inst-img">
+        <img src="https://portalparalegal.wpcomstaging.com/wp-content/uploads/2026/05/Junior-Branquinho-Foto-Livro-1.png" alt="Júnior Branquinho">
+      </div>
+      <div>
+        <p class="stag">Seu instrutor</p>
+        <h2 class="inst-name">Júnior Branquinho</h2>
+        <p class="inst-role">Gestor Jurídico · LL.M em Contratos · Autor · Fundador</p>
+        <div class="sline"></div>
+        <p class="inst-bio">Júnior Branquinho é referência nacional em Gestão de Serviços Judiciais e Notariais. Pós-graduado (LL.M) em Direito Contratual, é autor do livro <em>"Gestão de Serviços Judiciais e Notariais — O Manual da Profissão"</em>, publicado pela Editora Rideel, fundador do Portal Paralegal e Presidente da OGB.</p>
+        <div class="cred-list">
+          <div class="cred-item">Graduado em Gestão de Serviços Judiciais e Notariais</div>
+          <div class="cred-item">LL.M em Direito Contratual</div>
+          <div class="cred-item">Autor pela Editora Rideel</div>
+          <div class="cred-item">Fundador do Portal Paralegal e da Academia Paralegal</div>
+          <div class="cred-item">Presidente da OGB — Organização dos Gestores Judiciais e Notariais do Brasil</div>
+          <div class="cred-item">5 anos como Hotmarter com cursos 5 estrelas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<div class="cta-sec">
+  <div class="cta-inner">
+    <p class="stag">Pronto para dar o próximo passo?</p>
+    <h2 class="cta-h">Garanta sua vaga e comece sua transformação <em>hoje.</em></h2>
+    <p class="cta-p">O mercado jurídico valoriza quem domina contratos. Este curso entrega as ferramentas, o conhecimento e a credibilidade que você precisa para se destacar.</p>
+    <div class="cta-price"><strong>R$ 259,00</strong> · ou 12x de R$ 21,59</div>
+    <p class="cta-note">🛡 Garantia de 7 dias · Certificado incluso · Acesso vitalício</p>
+    <div class="cta-btns">
+      <a href="https://pay.hotmart.com/A62358936S" class="btn-p">Matricular-se agora</a>
+      <a href="#aula-gratis" class="btn-s">Assistir aula grátis</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
