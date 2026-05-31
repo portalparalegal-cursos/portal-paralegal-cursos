@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -159,6 +160,144 @@
   .pp-inst-inner { flex-direction: column; }
   .pp-inst-img { width: 200px; }
 }
+
+/* ========== RESPONSIVO MOBILE ========== */
+@media (max-width: 768px) {
+
+  .pp-hero {
+    padding: 40px 20px 60px 20px !important;
+  }
+
+  .pp-hero-inner {
+    flex-direction: column !important;
+    gap: 40px !important;
+  }
+
+  .pp-hero-right {
+    width: 100% !important;
+    padding-top: 0 !important;
+  }
+
+  .pp-hero h1,
+  .pp-hero-title {
+    font-size: 48px !important;
+    line-height: 1.05 !important;
+  }
+
+  .pp-hero h2 {
+    font-size: 20px !important;
+  }
+
+  .pp-hero-desc {
+    font-size: 15px !important;
+  }
+
+  .pp-hero-stats {
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .pp-stat-n {
+    font-size: 28px !important;
+  }
+
+  .pp-btn-primary,
+  .pp-btn-secondary {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-right: 0 !important;
+    padding: 16px 20px !important;
+    font-size: 12px !important;
+  }
+
+  .pp-price-card {
+    padding: 28px 20px !important;
+  }
+
+  .pp-price-main {
+    font-size: 52px !important;
+  }
+
+  .pp-section {
+    padding: 60px 20px !important;
+  }
+
+  .pp-stitle {
+    font-size: 28px !important;
+  }
+
+  .pp-who-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .pp-learn-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .pp-why-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .pp-mod-item {
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+  }
+
+  .pp-mod-tag {
+    width: 100% !important;
+  }
+
+  .pp-inst-inner {
+    flex-direction: column !important;
+    gap: 32px !important;
+    align-items: flex-start !important;
+  }
+
+  .pp-inst-img {
+    width: 200px !important;
+  }
+
+  .pp-inst-name {
+    font-size: 32px !important;
+  }
+
+  .pp-cta-final {
+    padding: 60px 20px !important;
+  }
+
+  .pp-cta-final h2 {
+    font-size: 30px !important;
+  }
+
+  .pp-cta-btns {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .pp-cta-btns a {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* Seção de título do curso */
+  .pp-hero h1[style] {
+    font-size: 56px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .pp-hero h1 {
+    font-size: 40px !important;
+  }
+  .pp-why-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .pp-stat-n {
+    font-size: 24px !important;
+  }
+}
+
 </style>
 
 <div class="pp-lp">
