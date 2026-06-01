@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academia Paralegal — Acesso Ilimitado e Vitalício | Portal Paralegal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Barlow', sans-serif; background: #080808; color: #fff; overflow-x: hidden; }
+a { text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+:root {
+  --navy:     #0A1628;
+  --navy-mid: #1B3A6B;
+  --blue:     #4A9EDE;
+  --gold:     #c9a84c;
+}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero {
+  background: linear-gradient(135deg, #040D1A 0%, #0A1628 55%, #0D2040 100%);
+  padding: 60px 40px 80px; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(74,158,222,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--blue), transparent);
+}
+.hero-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 340px;
+  gap: 60px; align-items: start; position: relative; z-index: 2;
+}
+.tag {
+  display: inline-block; border: 1px solid rgba(74,158,222,0.35);
+  padding: 6px 16px; margin-bottom: 24px;
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--blue); font-weight: 500;
+}
+.course-label { font-size: 11px; letter-spacing: 6px; text-transform: uppercase; color: var(--blue); font-weight: 500; margin-bottom: 12px; }
+.course-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(44px, 5.5vw, 82px);
+  font-weight: 300; line-height: 0.95; color: #fff; letter-spacing: 1px;
+}
+.course-subtitle-row { display: flex; align-items: center; gap: 16px; margin: 14px 0 32px; }
+.course-subtitle-line { height: 1px; width: 48px; background: var(--blue); flex-shrink: 0; }
+.course-subtitle-text { font-size: 13px; letter-spacing: 5px; text-transform: uppercase; color: var(--blue); font-weight: 400; }
+.hero-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 2.5vw, 30px); font-weight: 300; color: #fff; line-height: 1.35; margin-bottom: 16px; }
+.hero-headline em { color: var(--blue); font-style: italic; }
+.hero-desc { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.8; font-weight: 300; margin-bottom: 36px; max-width: 560px; }
+
+.stats-row { display: flex; gap: 32px; margin-bottom: 36px; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat-n { font-family: 'Cormorant Garamond', serif; font-size: 34px; color: #fff; font-weight: 300; line-height: 1; }
+.stat-l { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 4px; }
+.stat-div { width: 1px; background: rgba(255,255,255,0.1); align-self: stretch; }
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-p { background: var(--navy-mid); color: #fff; padding: 15px 36px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; border: 1px solid var(--navy-mid); transition: all 0.3s; }
+.btn-p:hover { background: var(--blue); border-color: var(--blue); color: #000; }
+.btn-s { background: transparent; color: #fff; padding: 15px 36px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 400; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s; }
+.btn-s:hover { border-color: var(--blue); color: var(--blue); }
+
+/* price card */
+.price-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(74,158,222,0.25); padding: 32px 28px; position: relative; }
+.price-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--navy-mid), var(--blue)); }
+.price-lbl { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
+.price-old { font-size: 14px; color: rgba(255,255,255,0.35); text-decoration: line-through; margin-bottom: 2px; }
+.price-val { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; color: #fff; line-height: 1; margin-bottom: 4px; }
+.price-val sup { font-size: 22px; vertical-align: top; margin-top: 10px; display: inline-block; }
+.price-inst { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
+.price-inst strong { color: var(--blue); }
+.card-cta { display: block; background: var(--navy-mid); color: #fff; text-align: center; padding: 15px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; border: 1px solid var(--navy-mid); transition: all 0.3s; margin-bottom: 20px; }
+.card-cta:hover { background: var(--blue); border-color: var(--blue); color: #000; }
+.card-feats { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.card-feats li { display: flex; gap: 10px; font-size: 12px; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.4; }
+.card-feats li::before { content: '✓'; color: var(--blue); flex-shrink: 0; }
+.card-sep { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 14px 0; }
+.card-guar { display: flex; gap: 10px; align-items: flex-start; font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+.card-bonus { background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.35); padding: 12px 14px; margin-top: 14px; font-size: 12px; color: rgba(255,255,255,0.8); line-height: 1.55; }
+.card-bonus strong { color: var(--gold); display: block; margin-bottom: 4px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+
+/* ═══════════════════════════════════════
+   SEÇÕES
+═══════════════════════════════════════ */
+.sec { padding: 90px 40px; }
+.sec-w { background: #fff; }
+.sec-g { background: #f7f8fa; }
+.sec-n { background: #0A1628; }
+.sec-d { background: #080808; }
+.sec-inner { max-width: 1100px; margin: 0 auto; }
+.stag { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--blue); font-weight: 500; margin-bottom: 10px; }
+.stitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 300; line-height: 1.2; margin-bottom: 12px; color: #0A1628; }
+.stitle-w { color: #fff; }
+.sline { width: 36px; height: 1px; background: var(--blue); margin-bottom: 24px; }
+.sdesc { font-size: 15px; color: #555; font-weight: 300; line-height: 1.8; max-width: 640px; }
+.sdesc-w { color: rgba(255,255,255,0.65); }
+
+/* ═══════════════════════════════════════
+   O QUE ESTÁ INCLUSO
+═══════════════════════════════════════ */
+.incluso-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; margin-top: 40px; background: #e0e8f0; }
+.incluso-item { background: #fff; padding: 26px 22px; display: flex; gap: 14px; align-items: flex-start; transition: 0.25s; }
+.incluso-item:hover { background: #f0f6ff; }
+.incluso-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+.incluso-text h3 { font-size: 14px; font-weight: 600; color: #0A1628; margin-bottom: 5px; }
+.incluso-text p  { font-size: 13px; color: #666; font-weight: 300; line-height: 1.55; }
+
+/* ═══════════════════════════════════════
+   CARROSSEL GENÉRICO
+═══════════════════════════════════════ */
+.carousel-outer { position: relative; margin-top: 40px; }
+.carousel-viewport { overflow: hidden; }
+.carousel-track {
+  display: flex; gap: 16px;
+  transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  will-change: transform;
+}
+
+/* cards com imagem */
+.img-card {
+  flex: 0 0 200px;
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(74,158,222,0.15);
+  transition: transform 0.2s, border-color 0.2s;
+  background: var(--navy);
+}
+.img-card:hover { transform: translateY(-4px); border-color: rgba(74,158,222,0.45); }
+.img-card img { width: 100%; display: block; aspect-ratio: 720/1040; object-fit: cover; }
+
+/* controls */
+.carousel-controls { display: flex; justify-content: center; gap: 12px; margin-top: 20px; align-items: center; }
+.carousel-btn { width: 40px; height: 40px; border-radius: 50%; background: rgba(74,158,222,0.12); border: 1px solid rgba(74,158,222,0.3); color: var(--blue); font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.carousel-btn:hover { background: rgba(74,158,222,0.28); }
+.carousel-dots { display: flex; gap: 6px; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.2); transition: all 0.2s; cursor: pointer; }
+.dot.active { background: var(--blue); width: 18px; border-radius: 4px; }
+
+/* ═══════════════════════════════════════
+   PARA QUEM
+═══════════════════════════════════════ */
+.who-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; margin-top: 40px; background: #e0e8f0; }
+.who-item { background: #fff; padding: 26px 22px; transition: 0.25s; }
+.who-item:hover { background: #f0f6ff; }
+.who-icon { font-size: 22px; margin-bottom: 10px; }
+.who-title { font-size: 14px; font-weight: 600; color: #0A1628; margin-bottom: 6px; }
+.who-desc  { font-size: 13px; color: #666; font-weight: 300; line-height: 1.6; }
+
+/* ═══════════════════════════════════════
+   BÔNUS LIVRO
+═══════════════════════════════════════ */
+.bonus-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.bonus-badge { display: inline-block; background: rgba(201,168,76,0.12); border: 1px solid var(--gold); color: var(--gold); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; padding: 5px 14px; margin-bottom: 20px; }
+.bonus-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px,3vw,38px); font-weight: 300; color: #fff; line-height: 1.2; margin-bottom: 16px; }
+.bonus-title em { color: var(--gold); font-style: italic; }
+.bonus-desc { font-size: 15px; color: rgba(255,255,255,0.65); font-weight: 300; line-height: 1.8; margin-bottom: 20px; }
+.bonus-feats { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.bonus-feats li { display: flex; gap: 10px; font-size: 14px; color: rgba(255,255,255,0.75); font-weight: 300; }
+.bonus-feats li::before { content: '✓'; color: var(--gold); flex-shrink: 0; font-weight: 700; }
+.bonus-img-wrap { border-radius: 12px; overflow: hidden; border: 1px solid rgba(201,168,76,0.25); }
+.bonus-img-wrap img { width: 100%; display: block; }
+.bonus-frete { background: rgba(201,168,76,0.1); padding: 12px 16px; font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.5; text-align: center; border-top: 1px solid rgba(201,168,76,0.2); }
+.bonus-frete strong { color: var(--gold); }
+
+/* ═══════════════════════════════════════
+   AVALIAÇÕES
+═══════════════════════════════════════ */
+.reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 40px; }
+.review-card { background: #1a1a2e; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px 20px; transition: 0.25s; }
+.review-card:hover { border-color: rgba(74,158,222,0.25); }
+.review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.review-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: #fff; flex-shrink: 0; text-transform: uppercase; }
+.review-name { font-size: 14px; font-weight: 600; color: #fff; }
+.review-meta { font-size: 11px; color: rgba(255,255,255,0.35); }
+.review-stars { color: #f5a623; font-size: 13px; margin-bottom: 10px; letter-spacing: 2px; }
+.review-text { font-size: 13px; color: rgba(255,255,255,0.65); font-weight: 300; line-height: 1.7; }
+
+/* ═══════════════════════════════════════
+   PARCELAMENTO BOLETO/PIX
+═══════════════════════════════════════ */
+.parcela-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 32px; }
+.parcela-btn {
+  display: block; background: rgba(255,255,255,0.04); border: 1px solid rgba(74,158,222,0.2);
+  border-radius: 10px; padding: 22px 18px; text-align: center; text-decoration: none;
+  transition: all 0.25s; cursor: pointer;
+}
+.parcela-btn:hover { border-color: var(--blue); background: rgba(74,158,222,0.1); transform: translateY(-2px); }
+.parcela-n { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--blue); line-height: 1; margin-bottom: 4px; }
+.parcela-val { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 4px; font-weight: 500; }
+.parcela-note { font-size: 11px; color: rgba(255,255,255,0.35); }
+.parcela-arrow { font-size: 11px; color: var(--blue); margin-top: 8px; letter-spacing: 1px; text-transform: uppercase; }
+
+/* ═══════════════════════════════════════
+   WHATSAPP
+═══════════════════════════════════════ */
+.wa-box { display: flex; align-items: center; gap: 20px; background: rgba(37,211,102,0.08); border: 1px solid rgba(37,211,102,0.3); border-radius: 12px; padding: 24px 28px; margin-top: 40px; }
+.wa-icon { font-size: 2.4rem; flex-shrink: 0; }
+.wa-text h3 { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+.wa-text p  { font-size: 13px; color: rgba(255,255,255,0.55); font-weight: 300; }
+.wa-btn { display: inline-block; background: #25D366; color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; transition: all 0.2s; white-space: nowrap; flex-shrink: 0; margin-left: auto; }
+.wa-btn:hover { background: #1ebe5a; transform: translateY(-1px); }
+
+/* ═══════════════════════════════════════
+   CTA FINAL
+═══════════════════════════════════════ */
+.cta-sec { background: linear-gradient(135deg, #040D1A, #0A1628, #0D2040); padding: 100px 40px; text-align: center; position: relative; overflow: hidden; }
+.cta-sec::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 100%, rgba(74,158,222,0.18) 0%, transparent 60%); }
+.cta-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 2; }
+.cta-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px,4vw,52px); font-weight: 300; color: #fff; margin-bottom: 16px; line-height: 1.2; }
+.cta-h em { color: var(--blue); font-style: italic; }
+.cta-p { font-size: 15px; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.8; margin-bottom: 32px; }
+.cta-price-old { font-size: 14px; color: rgba(255,255,255,0.3); text-decoration: line-through; margin-bottom: 4px; }
+.cta-price { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+.cta-price strong { color: #fff; font-size: 32px; }
+.cta-note { font-size: 12px; color: rgba(255,255,255,0.3); margin-bottom: 28px; }
+.cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+
+/* ═══════════════════════════════════════
+   RESPONSIVO
+═══════════════════════════════════════ */
+@media (max-width: 900px) {
+  .hero { padding: 48px 28px 64px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  .price-card { max-width: 100%; }
+  .incluso-grid { grid-template-columns: 1fr 1fr; }
+  .who-grid { grid-template-columns: 1fr 1fr; }
+  .reviews-grid { grid-template-columns: 1fr 1fr; }
+  .parcela-grid { grid-template-columns: repeat(3,1fr); }
+  .bonus-inner { grid-template-columns: 1fr; gap: 36px; }
+  .wa-box { flex-wrap: wrap; }
+  .wa-btn { margin-left: 0; margin-top: 12px; }
+}
+@media (max-width: 600px) {
+  .hero { padding: 40px 20px 56px; }
+  .course-title { font-size: 40px !important; }
+  .hero-headline { font-size: 22px !important; line-height: 1.4; }
+  .hero-desc { font-size: 16px !important; }
+  .stats-row { gap: 14px; justify-content: center; }
+  .stat-n { font-size: 30px !important; }
+  .stat-div { display: none; }
+  .btn-row { flex-direction: column; gap: 12px; }
+  .btn-p, .btn-s { width: 100%; text-align: center; padding: 18px 20px; font-size: 13px; }
+  .price-card { padding: 28px 20px; }
+  .price-val { font-size: 52px !important; }
+  .card-cta { padding: 18px; font-size: 13px; }
+  .card-feats li { font-size: 14px; line-height: 1.5; }
+  .sec { padding: 56px 20px; }
+  .stitle { font-size: 28px !important; line-height: 1.25; }
+  .sdesc { font-size: 15px; }
+  .incluso-grid { grid-template-columns: 1fr; gap: 0; }
+  .incluso-item { padding: 20px 18px; }
+  .who-grid { grid-template-columns: 1fr; gap: 0; }
+  .who-item { padding: 22px 18px; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .parcela-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .img-card { flex: 0 0 160px; }
+  .bonus-inner { grid-template-columns: 1fr; }
+  .bonus-title { font-size: 26px !important; }
+  .cta-sec { padding: 68px 20px; }
+  .cta-h { font-size: 28px !important; }
+  .cta-btns { flex-direction: column; align-items: stretch; }
+  .cta-btns a { width: 100%; text-align: center; padding: 18px 20px; font-size: 13px; }
+  .wa-box { flex-direction: column; padding: 20px; }
+  .wa-btn { width: 100%; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="tag">Portal Paralegal · Academia Paralegal</div>
+      <p class="course-label">Acesso ilimitado e vitalício</p>
+      <h1 class="course-title">Academia<br>Paralegal</h1>
+      <div class="course-subtitle-row">
+        <div class="course-subtitle-line"></div>
+        <p class="course-subtitle-text">Todos os cursos · Para sempre</p>
+      </div>
+      <h2 class="hero-headline">Acesso <em>ilimitado e vitalício</em> a todos os cursos e palestras da plataforma — novos conteúdos incluídos automaticamente, sem pagar nada a mais.</h2>
+      <p class="hero-desc">Uma única decisão. Para sempre. Todos os cursos, todos os certificados, todos os materiais e todos os novos lançamentos. A formação completa para quem leva a carreira jurídica a sério.</p>
+      <div class="stats-row">
+        <div class="stat"><div class="stat-n">7+</div><div class="stat-l">Cursos</div></div>
+        <div class="stat-div"></div>
+        <div class="stat"><div class="stat-n">∞</div><div class="stat-l">Acesso</div></div>
+        <div class="stat-div"></div>
+        <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Online</div></div>
+        <div class="stat-div"></div>
+        <div class="stat"><div class="stat-n">7d</div><div class="stat-l">Garantia</div></div>
+      </div>
+      <div class="btn-row">
+        <a href="https://pay.hotmart.com/Q99086019O" class="btn-p">Garantir acesso agora</a>
+        <a href="#cursos" class="btn-s">Ver todos os cursos</a>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <p class="price-lbl">Investimento único</p>
+      <p class="price-old">de R$ 499,00</p>
+      <div class="price-val"><sup>R$</sup> 399<span style="font-size:28px;">,00</span></div>
+      <p class="price-inst">ou <strong>10x de R$ 39,90</strong> no cartão</p>
+      <a href="https://pay.hotmart.com/Q99086019O" class="card-cta">Garantir meu acesso</a>
+      <ul class="card-feats">
+        <li>Acesso vitalício a TODOS os cursos</li>
+        <li>Certificado de conclusão em cada curso</li>
+        <li>Material de apoio em PDF e E-books</li>
+        <li>Modelos de contratos e documentos editáveis</li>
+        <li>IA integrada para dúvidas e estudos</li>
+        <li>Novos cursos incluídos sem custo adicional</li>
+        <li>Acesso em qualquer dispositivo</li>
+      </ul>
+      <hr class="card-sep">
+      <div class="card-bonus">
+        <strong>🎁 Bônus exclusivo</strong>
+        Livro "Gestão de Serviços Judiciais e Notariais — O Manual da Profissão" · Frete incluso · Enviado para sua casa
+      </div>
+      <hr class="card-sep">
+      <div class="card-guar"><span style="font-size:18px;">🛡</span><span><strong style="color:#fff;">Garantia de 7 dias.</strong> Reembolso integral, sem perguntas.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ O QUE ESTÁ INCLUSO ═══ -->
+<div class="sec sec-w">
+  <div class="sec-inner">
+    <p class="stag">O que está incluso</p>
+    <h2 class="stitle">Tudo que você precisa para <em style="font-style:italic;color:#1B3A6B;">dominar sua área</em></h2>
+    <div class="sline"></div>
+    <div class="incluso-grid">
+      <div class="incluso-item"><div class="incluso-icon">🔓</div><div class="incluso-text"><h3>Acesso vitalício a TODOS os cursos</h3><p>Uma vez, para sempre. Todos os cursos disponíveis e futuros incluídos no seu plano.</p></div></div>
+      <div class="incluso-item"><div class="incluso-icon">🎓</div><div class="incluso-text"><h3>Certificados válidos em todo o Brasil</h3><p>Certificado de conclusão em cada curso, reconhecido em todo o território nacional.</p></div></div>
+      <div class="incluso-item"><div class="incluso-icon">📚</div><div class="incluso-text"><h3>Material de apoio e E-books exclusivos</h3><p>PDFs, apostilas e e-books para aprofundar seu conhecimento.</p></div></div>
+      <div class="incluso-item"><div class="incluso-icon">📄</div><div class="incluso-text"><h3>Modelos de contratos e documentos</h3><p>Documentos editáveis prontos para usar na sua rotina profissional.</p></div></div>
+      <div class="incluso-item"><div class="incluso-icon">🤖</div><div class="incluso-text"><h3>Plataforma com Inteligência Artificial</h3><p>IA integrada para tirar dúvidas e apoiar seus estudos em tempo real.</p></div></div>
+      <div class="incluso-item"><div class="incluso-icon">🚀</div><div class="incluso-text"><h3>Novos cursos sem custo adicional</h3><p>Todos os lançamentos futuros são adicionados automaticamente ao seu plano.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CARROSSEL — CURSOS COMPLETOS ═══ -->
+<div class="sec sec-n" id="cursos">
+  <div class="sec-inner">
+    <p class="stag">Cursos completos inclusos</p>
+    <h2 class="stitle stitle-w">Formações profissionais <em style="font-style:italic;color:var(--blue);">completas</em></h2>
+    <div class="sline"></div>
+    <p class="sdesc sdesc-w">Cursos com conteúdo extenso, módulos aprofundados e certificado de conclusão — tudo incluso no seu acesso vitalício.</p>
+
+    <div class="carousel-outer">
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="trackCursos">
+          <div class="img-card"><img src="card-gestao-juridica.png"       alt="Gestão Jurídica — Legal Operation"></div>
+          <div class="img-card"><img src="card-analista-contratos.png"    alt="Analista de Contratos — Teoria Geral e Prática"></div>
+          <div class="img-card"><img src="card-correspondencia-juridica.png" alt="Correspondência Jurídica — Na Prática"></div>
+          <div class="img-card"><img src="card-rotinas-juridicas.png"     alt="Rotinas Jurídicas — Na Prática"></div>
+          <div class="img-card"><img src="card-mediacao.png"              alt="Mediação Extrajudicial"></div>
+          <div class="img-card"><img src="card-rotinas-contabeis.png"     alt="Rotinas Contábeis"></div>
+          <div class="img-card"><img src="card-registro-marcas.png"       alt="Registro de Marcas no INPI"></div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn" data-track="trackCursos" data-dir="-1">&#8592;</button>
+        <div class="carousel-dots" data-track="trackCursos"></div>
+        <button class="carousel-btn" data-track="trackCursos" data-dir="1">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CARROSSEL — PALESTRAS & CURSOS RÁPIDOS ═══ -->
+<div class="sec sec-d" id="palestras">
+  <div class="sec-inner">
+    <p class="stag">Palestras e cursos rápidos inclusos</p>
+    <h2 class="stitle stitle-w">Conteúdos extras com <em style="font-style:italic;color:var(--blue);">especialistas</em></h2>
+    <div class="sline"></div>
+    <p class="sdesc sdesc-w">Palestras e cursos rápidos com especialistas — advogados, juízes federais, gestores jurídicos, mestres e doutores. Novos títulos adicionados continuamente.</p>
+
+    <div class="carousel-outer">
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="trackPalestras">
+          <div class="img-card"><img src="card-recrutamento.png"             alt="Recrutamento e Seleção para Gestores Judiciais"></div>
+          <div class="img-card"><img src="card-marketing-juridico.png"       alt="Marketing Jurídico — Noções Gerais"></div>
+          <div class="img-card"><img src="card-hierarquia-judiciario.png"    alt="A Hierarquia e os Órgãos do Poder Judiciário"></div>
+          <div class="img-card"><img src="card-correspondencia-contratacoes.png" alt="Como Conseguir Contratações na Correspondência Jurídica"></div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn" data-track="trackPalestras" data-dir="-1">&#8592;</button>
+        <div class="carousel-dots" data-track="trackPalestras"></div>
+        <button class="carousel-btn" data-track="trackPalestras" data-dir="1">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PARA QUEM ═══ -->
+<div class="sec sec-w">
+  <div class="sec-inner">
+    <p class="stag">Para quem é este acesso</p>
+    <h2 class="stitle">É para você que leva a <em style="font-style:italic;color:#1B3A6B;">carreira a sério</em></h2>
+    <div class="sline"></div>
+    <div class="who-grid">
+      <div class="who-item"><div class="who-icon">🏛️</div><div class="who-title">Estudantes e graduados em Gestão Jurídica</div><div class="who-desc">Que buscam formação completa e diferencial prático para entrar e crescer no mercado.</div></div>
+      <div class="who-item"><div class="who-icon">⚖️</div><div class="who-title">Profissionais jurídicos, contábeis e cartoriais</div><div class="who-desc">Que querem ampliar competências, atualizar conhecimentos e diversificar sua atuação.</div></div>
+      <div class="who-item"><div class="who-icon">💼</div><div class="who-title">Empresários, gestores e equipes jurídicas</div><div class="who-desc">Que precisam capacitar suas equipes com conteúdo prático e de alta qualidade.</div></div>
+      <div class="who-item"><div class="who-icon">📋</div><div class="who-title">Despachantes e paralegais</div><div class="who-desc">Que atuam com serviços jurídicos, contratos, marcas, cartórios e gestão jurídica.</div></div>
+      <div class="who-item"><div class="who-icon">🎓</div><div class="who-title">Quem busca formação prática de qualidade</div><div class="who-desc">Que quer sair da teoria e aprender o que o mercado realmente exige no dia a dia.</div></div>
+      <div class="who-item"><div class="who-icon">🚀</div><div class="who-title">Quem quer crescer sem limites</div><div class="who-desc">Que não quer pagar por cada novo curso — e prefere ter acesso a tudo de uma vez, para sempre.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ BÔNUS: LIVRO ═══ -->
+<div class="sec sec-n">
+  <div class="sec-inner">
+    <div class="bonus-inner">
+      <div>
+        <span class="bonus-badge">🔥 Bônus exclusivo</span>
+        <h2 class="bonus-title">Livro <em>"O Manual da Profissão"</em><br>enviado para sua casa</h2>
+        <p class="bonus-desc">Ao adquirir o Acesso Ilimitado, você recebe o livro <strong style="color:#fff;">"Gestão de Serviços Judiciais e Notariais — O Manual da Profissão"</strong>, de Júnior Branquinho, publicado pela Editora Rideel. Enviado para a sua casa, com frete por nossa conta.</p>
+        <ul class="bonus-feats">
+          <li>Obra de referência para Gestores Judiciais e Notariais</li>
+          <li>Publicado pela Editora Rideel — 2ª edição</li>
+          <li>Frete incluso — chegará na sua casa</li>
+          <li>Enviado após pagamento da 2ª parcela (boleto/pix)</li>
+        </ul>
+      </div>
+      <div class="bonus-img-wrap">
+        <img src="livro-gestao-judiciais-notariais.png" alt="Livro Gestão de Serviços Judiciais e Notariais — O Manual da Profissão">
+        <div class="bonus-frete">🚚 <strong>Frete incluso.</strong> Chegará na sua casa sem custo adicional.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ AVALIAÇÕES ═══ -->
+<div class="sec sec-d">
+  <div class="sec-inner">
+    <p class="stag">O que dizem nossos alunos</p>
+    <h2 class="stitle stitle-w">Avaliações reais de alunos <em style="font-style:italic;color:var(--blue);">e alunas</em></h2>
+    <div class="sline"></div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar" style="background:#6b3a9b;">D</div>
+          <div><div class="review-name">Debora L</div><div class="review-meta">Graduada em Serviços Judiciais e Notariais</div></div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Com grande satisfação, manifesto meu contentamento com a Academia Paralegal. Em um contexto de constante evolução, a Academia nos proporciona os recursos necessários para nos mantermos atualizados. Reconheço o valor do seu conhecimento e a importância da sua contribuição para nossa área.</p>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar" style="background:#1B3A6B;">R</div>
+          <div><div class="review-name">Rodrigo Cantuario</div><div class="review-meta">Graduando em Gestão Jurídica e Notarial</div></div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Os Cursos da Academia Paralegal estão agregando muito em minha vida acadêmica e profissional. Conteúdo pedagógico de excelência com uma abordagem prática para ser aplicada tanto no âmbito profissional e acadêmico. Sou aluno da Academia Paralegal e eu recomendo! #soualunodaacademiaparalegal</p>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar" style="background:#2a5f3a;">C</div>
+          <div><div class="review-name">Carlos Maranzano</div><div class="review-meta">Gestor Jurídico</div></div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Junior Branquinho é uma verdadeira referência para nós, Gestores Jurídicos. A Academia Paralegal é um divisor de águas: os cursos são objetivos, atualizados e ministrados com uma didática excepcional. Profissionalismo, conhecimento e comprometimento definem Junior Branquinho.</p>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar" style="background:#8b3a2a;">R</div>
+          <div><div class="review-name">Rosinha Santana</div><div class="review-meta">Aluna da Academia Paralegal</div></div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Experiência excelente. A pessoa mais capacitada para falar sobre o assunto. Muito obrigada por me proporcionar momentos de muito aprendizado.</p>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar" style="background:#1B3A6B;">J</div>
+          <div><div class="review-name">Jenaina Pereira</div><div class="review-meta">Profissional Jurídica</div></div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Os cursos oferecidos são excepcionais! Os seminários são extremamente enriquecedores, repletos de informações essenciais para a prática profissional. Sobre o livro O Manual da Profissão — trata-se de uma obra excelente e atemporal, um guia indispensável para os Gestores Judiciais.</p>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar" style="background:#3a5a1a;">M</div>
+          <div><div class="review-name">Michele Areias</div><div class="review-meta">Aluna e leitora do Manual da Profissão</div></div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Recebi o livro do Juninho Branquinho e só posso dizer que é uma obra essencial para todos! Juninho é um verdadeiro marco de profissionalismo, dedicação e paixão pela profissão. Recomendo de coração para todos que querem se destacar e transformar suas carreiras!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PARCELAMENTO BOLETO/PIX ═══ -->
+<div class="sec sec-n">
+  <div class="sec-inner">
+    <p class="stag">Parcelamento via boleto ou pix</p>
+    <h2 class="stitle stitle-w">Sem cartão? <em style="font-style:italic;color:var(--blue);">Sem problema.</em></h2>
+    <div class="sline"></div>
+    <p class="sdesc sdesc-w">Parcele em até 6x via boleto bancário ou pix, sem consulta ao SPC/SERASA. Clique na opção desejada para ser redirecionado à página de pagamento. O livro é enviado após o pagamento da 2ª parcela.</p>
+
+    <div class="parcela-grid">
+      <a href="https://pay.hotmart.com/Q99086019O?off=se0f4o98" class="parcela-btn" target="_blank" rel="noopener">
+        <div class="parcela-n">2x</div>
+        <div class="parcela-val">R$ 199,50</div>
+        <div class="parcela-note">1 + 1 parcelas</div>
+        <div class="parcela-arrow">Pagar assim →</div>
+      </a>
+      <a href="https://pay.hotmart.com/Q99086019O?off=bwfpp7gj" class="parcela-btn" target="_blank" rel="noopener">
+        <div class="parcela-n">3x</div>
+        <div class="parcela-val">R$ 133,00</div>
+        <div class="parcela-note">1 + 2 parcelas</div>
+        <div class="parcela-arrow">Pagar assim →</div>
+      </a>
+      <a href="https://pay.hotmart.com/Q99086019O?off=xk4a88le" class="parcela-btn" target="_blank" rel="noopener">
+        <div class="parcela-n">4x</div>
+        <div class="parcela-val">R$ 99,75</div>
+        <div class="parcela-note">1 + 3 parcelas</div>
+        <div class="parcela-arrow">Pagar assim →</div>
+      </a>
+      <a href="https://pay.hotmart.com/Q99086019O?off=khg9sn4p" class="parcela-btn" target="_blank" rel="noopener">
+        <div class="parcela-n">5x</div>
+        <div class="parcela-val">R$ 79,80</div>
+        <div class="parcela-note">1 + 4 parcelas</div>
+        <div class="parcela-arrow">Pagar assim →</div>
+      </a>
+      <a href="https://pay.hotmart.com/Q99086019O?off=1qyo8hwl" class="parcela-btn" target="_blank" rel="noopener">
+        <div class="parcela-n">6x</div>
+        <div class="parcela-val">R$ 66,50</div>
+        <div class="parcela-note">1 + 5 parcelas</div>
+        <div class="parcela-arrow">Pagar assim →</div>
+      </a>
+      <a href="https://pay.hotmart.com/Q99086019O" class="parcela-btn" target="_blank" rel="noopener" style="border-color:rgba(74,158,222,0.4);background:rgba(74,158,222,0.08);">
+        <div class="parcela-n" style="color:#fff;">10x</div>
+        <div class="parcela-val" style="color:var(--blue);">R$ 39,90</div>
+        <div class="parcela-note">no cartão de crédito</div>
+        <div class="parcela-arrow">Pagar assim →</div>
+      </a>
+    </div>
+
+    <!-- WhatsApp -->
+    <div class="wa-box">
+      <div class="wa-icon">💬</div>
+      <div class="wa-text">
+        <h3>Ainda está com dúvidas?</h3>
+        <p>Fale diretamente com nosso suporte via WhatsApp — estamos prontos para te ajudar.</p>
+      </div>
+      <a href="https://wa.me/61999523521" class="wa-btn" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CTA FINAL ═══ -->
+<div class="cta-sec">
+  <div class="cta-inner">
+    <p class="stag">É a sua oportunidade</p>
+    <h2 class="cta-h">Prepare-se para o mercado de trabalho com um valor que <em>cabe no bolso.</em></h2>
+    <p class="cta-p">Acesse de onde e quando quiser. Estude no seu ritmo. Domine o mercado. Torne-se referência na sua área. Uma única decisão — resultados para toda a carreira.</p>
+    <p class="cta-price-old">de R$ 499,00</p>
+    <div class="cta-price">por apenas <strong>R$ 399,00</strong></div>
+    <p class="cta-note">ou 10x de R$ 39,90 · 🛡 Garantia de 7 dias · Livro incluso com frete grátis</p>
+    <div class="cta-btns">
+      <a href="https://pay.hotmart.com/Q99086019O" class="btn-p">Garantir meu acesso agora</a>
+      <a href="https://wa.me/61999523521" class="btn-s" target="_blank">Falar no WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── Generic carousel engine ───────────────────────────────────────────────
+function initCarousel(trackId) {
+  const track   = document.getElementById(trackId);
+  if (!track) return;
+  const cards   = track.querySelectorAll('.img-card');
+  const total   = cards.length;
+  const dotsEl  = document.querySelector(`.carousel-dots[data-track="${trackId}"]`);
+  let current   = 0;
+
+  function visible() {
+    const w = window.innerWidth;
+    if (w < 600) return 2;
+    if (w < 900) return 3;
+    return 4;
+  }
+  function maxIdx() { return Math.max(0, total - visible()); }
+
+  function buildDots() {
+    if (!dotsEl) return;
+    dotsEl.innerHTML = '';
+    const pages = maxIdx() + 1;
+    for (let i = 0; i < pages; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === current ? ' active' : '');
+      d.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function goTo(idx) {
+    current = Math.max(0, Math.min(idx, maxIdx()));
+    const cardW = cards[0].offsetWidth + 16;
+    track.style.transform = `translateX(-${current * cardW}px)`;
+    if (dotsEl) {
+      dotsEl.querySelectorAll('.dot').forEach((d, i) =>
+        d.classList.toggle('active', i === current)
+      );
+    }
+  }
+
+  // bind buttons
+  document.querySelectorAll(`.carousel-btn[data-track="${trackId}"]`).forEach(btn => {
+    btn.addEventListener('click', () => {
+      const dir = parseInt(btn.dataset.dir, 10);
+      goTo(current + dir);
+    });
+  });
+
+  window.addEventListener('resize', () => { buildDots(); goTo(Math.min(current, maxIdx())); });
+  buildDots();
+}
+
+initCarousel('trackCursos');
+initCarousel('trackPalestras');
+</script>
+</body>
+</html>
