@@ -19,9 +19,6 @@ img { max-width: 100%; display: block; }
   --gold:     #c9a84c;
 }
 
-/* ═══════════════════════════════════════
-   HERO
-═══════════════════════════════════════ */
 .hero {
   background: linear-gradient(135deg, #040D1A 0%, #0A1628 55%, #0D2040 100%);
   padding: 60px 40px 80px; position: relative; overflow: hidden;
@@ -70,7 +67,6 @@ img { max-width: 100%; display: block; }
 .btn-s { background: transparent; color: #fff; padding: 15px 36px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 400; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s; }
 .btn-s:hover { border-color: var(--blue); color: var(--blue); }
 
-/* price card */
 .price-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(74,158,222,0.25); padding: 32px 28px; position: relative; }
 .price-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--navy-mid), var(--blue)); }
 .price-lbl { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
@@ -86,12 +82,7 @@ img { max-width: 100%; display: block; }
 .card-feats li::before { content: '✓'; color: var(--blue); flex-shrink: 0; }
 .card-sep { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 14px 0; }
 .card-guar { display: flex; gap: 10px; align-items: flex-start; font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5; }
-.card-bonus { background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.35); padding: 12px 14px; margin-top: 14px; font-size: 12px; color: rgba(255,255,255,0.8); line-height: 1.55; }
-.card-bonus strong { color: var(--gold); display: block; margin-bottom: 4px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
 
-/* ═══════════════════════════════════════
-   SEÇÕES
-═══════════════════════════════════════ */
 .sec { padding: 90px 40px; }
 .sec-w { background: #fff; }
 .sec-g { background: #f7f8fa; }
@@ -105,9 +96,6 @@ img { max-width: 100%; display: block; }
 .sdesc { font-size: 15px; color: #555; font-weight: 300; line-height: 1.8; max-width: 640px; }
 .sdesc-w { color: rgba(255,255,255,0.65); }
 
-/* ═══════════════════════════════════════
-   O QUE ESTÁ INCLUSO
-═══════════════════════════════════════ */
 .incluso-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; margin-top: 40px; background: #e0e8f0; }
 .incluso-item { background: #fff; padding: 26px 22px; display: flex; gap: 14px; align-items: flex-start; transition: 0.25s; }
 .incluso-item:hover { background: #f0f6ff; }
@@ -115,9 +103,6 @@ img { max-width: 100%; display: block; }
 .incluso-text h3 { font-size: 14px; font-weight: 600; color: #0A1628; margin-bottom: 5px; }
 .incluso-text p  { font-size: 13px; color: #666; font-weight: 300; line-height: 1.55; }
 
-/* ═══════════════════════════════════════
-   CARROSSEL GENÉRICO
-═══════════════════════════════════════ */
 .carousel-outer { position: relative; margin-top: 40px; }
 .carousel-viewport { overflow: hidden; }
 .carousel-track {
@@ -125,8 +110,6 @@ img { max-width: 100%; display: block; }
   transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
   will-change: transform;
 }
-
-/* cards com imagem */
 .img-card {
   flex: 0 0 200px;
   border-radius: 12px; overflow: hidden;
@@ -136,8 +119,6 @@ img { max-width: 100%; display: block; }
 }
 .img-card:hover { transform: translateY(-4px); border-color: rgba(74,158,222,0.45); }
 .img-card img { width: 100%; display: block; aspect-ratio: 720/1040; object-fit: cover; }
-
-/* controls */
 .carousel-controls { display: flex; justify-content: center; gap: 12px; margin-top: 20px; align-items: center; }
 .carousel-btn { width: 40px; height: 40px; border-radius: 50%; background: rgba(74,158,222,0.12); border: 1px solid rgba(74,158,222,0.3); color: var(--blue); font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
 .carousel-btn:hover { background: rgba(74,158,222,0.28); }
@@ -145,9 +126,6 @@ img { max-width: 100%; display: block; }
 .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.2); transition: all 0.2s; cursor: pointer; }
 .dot.active { background: var(--blue); width: 18px; border-radius: 4px; }
 
-/* ═══════════════════════════════════════
-   PARA QUEM
-═══════════════════════════════════════ */
 .who-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; margin-top: 40px; background: #e0e8f0; }
 .who-item { background: #fff; padding: 26px 22px; transition: 0.25s; }
 .who-item:hover { background: #f0f6ff; }
@@ -155,25 +133,6 @@ img { max-width: 100%; display: block; }
 .who-title { font-size: 14px; font-weight: 600; color: #0A1628; margin-bottom: 6px; }
 .who-desc  { font-size: 13px; color: #666; font-weight: 300; line-height: 1.6; }
 
-/* ═══════════════════════════════════════
-   BÔNUS LIVRO
-═══════════════════════════════════════ */
-.bonus-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-.bonus-badge { display: inline-block; background: rgba(201,168,76,0.12); border: 1px solid var(--gold); color: var(--gold); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; padding: 5px 14px; margin-bottom: 20px; }
-.bonus-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px,3vw,38px); font-weight: 300; color: #fff; line-height: 1.2; margin-bottom: 16px; }
-.bonus-title em { color: var(--gold); font-style: italic; }
-.bonus-desc { font-size: 15px; color: rgba(255,255,255,0.65); font-weight: 300; line-height: 1.8; margin-bottom: 20px; }
-.bonus-feats { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.bonus-feats li { display: flex; gap: 10px; font-size: 14px; color: rgba(255,255,255,0.75); font-weight: 300; }
-.bonus-feats li::before { content: '✓'; color: var(--gold); flex-shrink: 0; font-weight: 700; }
-.bonus-img-wrap { border-radius: 12px; overflow: hidden; border: 1px solid rgba(201,168,76,0.25); }
-.bonus-img-wrap img { width: 100%; display: block; }
-.bonus-frete { background: rgba(201,168,76,0.1); padding: 12px 16px; font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.5; text-align: center; border-top: 1px solid rgba(201,168,76,0.2); }
-.bonus-frete strong { color: var(--gold); }
-
-/* ═══════════════════════════════════════
-   AVALIAÇÕES
-═══════════════════════════════════════ */
 .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 40px; }
 .review-card { background: #1a1a2e; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px 20px; transition: 0.25s; }
 .review-card:hover { border-color: rgba(74,158,222,0.25); }
@@ -184,24 +143,6 @@ img { max-width: 100%; display: block; }
 .review-stars { color: #f5a623; font-size: 13px; margin-bottom: 10px; letter-spacing: 2px; }
 .review-text { font-size: 13px; color: rgba(255,255,255,0.65); font-weight: 300; line-height: 1.7; }
 
-/* ═══════════════════════════════════════
-   PARCELAMENTO BOLETO/PIX
-═══════════════════════════════════════ */
-.parcela-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 32px; }
-.parcela-btn {
-  display: block; background: rgba(255,255,255,0.04); border: 1px solid rgba(74,158,222,0.2);
-  border-radius: 10px; padding: 22px 18px; text-align: center; text-decoration: none;
-  transition: all 0.25s; cursor: pointer;
-}
-.parcela-btn:hover { border-color: var(--blue); background: rgba(74,158,222,0.1); transform: translateY(-2px); }
-.parcela-n { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--blue); line-height: 1; margin-bottom: 4px; }
-.parcela-val { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 4px; font-weight: 500; }
-.parcela-note { font-size: 11px; color: rgba(255,255,255,0.35); }
-.parcela-arrow { font-size: 11px; color: var(--blue); margin-top: 8px; letter-spacing: 1px; text-transform: uppercase; }
-
-/* ═══════════════════════════════════════
-   WHATSAPP
-═══════════════════════════════════════ */
 .wa-box { display: flex; align-items: center; gap: 20px; background: rgba(37,211,102,0.08); border: 1px solid rgba(37,211,102,0.3); border-radius: 12px; padding: 24px 28px; margin-top: 40px; }
 .wa-icon { font-size: 2.4rem; flex-shrink: 0; }
 .wa-text h3 { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 4px; }
@@ -209,9 +150,6 @@ img { max-width: 100%; display: block; }
 .wa-btn { display: inline-block; background: #25D366; color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; transition: all 0.2s; white-space: nowrap; flex-shrink: 0; margin-left: auto; }
 .wa-btn:hover { background: #1ebe5a; transform: translateY(-1px); }
 
-/* ═══════════════════════════════════════
-   CTA FINAL
-═══════════════════════════════════════ */
 .cta-sec { background: linear-gradient(135deg, #040D1A, #0A1628, #0D2040); padding: 100px 40px; text-align: center; position: relative; overflow: hidden; }
 .cta-sec::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 100%, rgba(74,158,222,0.18) 0%, transparent 60%); }
 .cta-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 2; }
@@ -224,9 +162,6 @@ img { max-width: 100%; display: block; }
 .cta-note { font-size: 12px; color: rgba(255,255,255,0.3); margin-bottom: 28px; }
 .cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
 
-/* ═══════════════════════════════════════
-   RESPONSIVO
-═══════════════════════════════════════ */
 @media (max-width: 900px) {
   .hero { padding: 48px 28px 64px; }
   .hero-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -234,8 +169,6 @@ img { max-width: 100%; display: block; }
   .incluso-grid { grid-template-columns: 1fr 1fr; }
   .who-grid { grid-template-columns: 1fr 1fr; }
   .reviews-grid { grid-template-columns: 1fr 1fr; }
-  .parcela-grid { grid-template-columns: repeat(3,1fr); }
-  .bonus-inner { grid-template-columns: 1fr; gap: 36px; }
   .wa-box { flex-wrap: wrap; }
   .wa-btn { margin-left: 0; margin-top: 12px; }
 }
@@ -261,10 +194,7 @@ img { max-width: 100%; display: block; }
   .who-grid { grid-template-columns: 1fr; gap: 0; }
   .who-item { padding: 22px 18px; }
   .reviews-grid { grid-template-columns: 1fr; }
-  .parcela-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .img-card { flex: 0 0 160px; }
-  .bonus-inner { grid-template-columns: 1fr; }
-  .bonus-title { font-size: 26px !important; }
   .cta-sec { padding: 68px 20px; }
   .cta-h { font-size: 28px !important; }
   .cta-btns { flex-direction: column; align-items: stretch; }
@@ -306,9 +236,9 @@ img { max-width: 100%; display: block; }
 
     <div class="price-card">
       <p class="price-lbl">Investimento único</p>
-      <p class="price-old">de R$ 499,00</p>
-      <div class="price-val"><sup>R$</sup> 399<span style="font-size:28px;">,00</span></div>
-      <p class="price-inst">ou <strong>10x de R$ 39,90</strong> no cartão</p>
+      <p class="price-old">de R$ 399,00</p>
+      <div class="price-val"><sup>R$</sup> 299<span style="font-size:28px;">,00</span></div>
+      <p class="price-inst">ou <strong>10x de R$ 29,90</strong> sem juros no cartão</p>
       <a href="https://pay.hotmart.com/Q99086019O" class="card-cta">Garantir meu acesso</a>
       <ul class="card-feats">
         <li>Acesso vitalício a TODOS os cursos</li>
@@ -319,11 +249,6 @@ img { max-width: 100%; display: block; }
         <li>Novos cursos incluídos sem custo adicional</li>
         <li>Acesso em qualquer dispositivo</li>
       </ul>
-      <hr class="card-sep">
-      <div class="card-bonus">
-        <strong>🎁 Bônus exclusivo</strong>
-        Livro "Gestão de Serviços Judiciais e Notariais — O Manual da Profissão" · Frete incluso · Enviado para sua casa
-      </div>
       <hr class="card-sep">
       <div class="card-guar"><span style="font-size:18px;">🛡</span><span><strong style="color:#fff;">Garantia de 7 dias.</strong> Reembolso integral, sem perguntas.</span></div>
     </div>
@@ -354,7 +279,6 @@ img { max-width: 100%; display: block; }
     <h2 class="stitle stitle-w">Formações profissionais <em style="font-style:italic;color:var(--blue);">completas</em></h2>
     <div class="sline"></div>
     <p class="sdesc sdesc-w">Cursos com conteúdo extenso, módulos aprofundados e certificado de conclusão — tudo incluso no seu acesso vitalício.</p>
-
     <div class="carousel-outer">
       <div class="carousel-viewport">
         <div class="carousel-track" id="trackCursos">
@@ -383,7 +307,6 @@ img { max-width: 100%; display: block; }
     <h2 class="stitle stitle-w">Conteúdos extras com <em style="font-style:italic;color:var(--blue);">especialistas</em></h2>
     <div class="sline"></div>
     <p class="sdesc sdesc-w">Palestras e cursos rápidos com especialistas — advogados, juízes federais, gestores jurídicos, mestres e doutores. Novos títulos adicionados continuamente.</p>
-
     <div class="carousel-outer">
       <div class="carousel-viewport">
         <div class="carousel-track" id="trackPalestras">
@@ -415,29 +338,6 @@ img { max-width: 100%; display: block; }
       <div class="who-item"><div class="who-icon">📋</div><div class="who-title">Despachantes e paralegais</div><div class="who-desc">Que atuam com serviços jurídicos, contratos, marcas, cartórios e gestão jurídica.</div></div>
       <div class="who-item"><div class="who-icon">🎓</div><div class="who-title">Quem busca formação prática de qualidade</div><div class="who-desc">Que quer sair da teoria e aprender o que o mercado realmente exige no dia a dia.</div></div>
       <div class="who-item"><div class="who-icon">🚀</div><div class="who-title">Quem quer crescer sem limites</div><div class="who-desc">Que não quer pagar por cada novo curso — e prefere ter acesso a tudo de uma vez, para sempre.</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══ BÔNUS: LIVRO ═══ -->
-<div class="sec sec-n">
-  <div class="sec-inner">
-    <div class="bonus-inner">
-      <div>
-        <span class="bonus-badge">🔥 Bônus exclusivo</span>
-        <h2 class="bonus-title">Livro <em>"O Manual da Profissão"</em><br>enviado para sua casa</h2>
-        <p class="bonus-desc">Ao adquirir o Acesso Ilimitado, você recebe o livro <strong style="color:#fff;">"Gestão de Serviços Judiciais e Notariais — O Manual da Profissão"</strong>, de Júnior Branquinho, publicado pela Editora Rideel. Enviado para a sua casa, com frete por nossa conta.</p>
-        <ul class="bonus-feats">
-          <li>Obra de referência para Gestores Judiciais e Notariais</li>
-          <li>Publicado pela Editora Rideel — 2ª edição</li>
-          <li>Frete incluso — chegará na sua casa</li>
-          <li>Enviado após pagamento da 2ª parcela (boleto/pix)</li>
-        </ul>
-      </div>
-      <div class="bonus-img-wrap">
-        <img src="livro-gestao-judiciais-notariais.png" alt="Livro Gestão de Serviços Judiciais e Notariais — O Manual da Profissão">
-        <div class="bonus-frete">🚚 <strong>Frete incluso.</strong> Chegará na sua casa sem custo adicional.</div>
-      </div>
     </div>
   </div>
 </div>
@@ -487,65 +387,16 @@ img { max-width: 100%; display: block; }
           <div><div class="review-name">Jenaina Pereira</div><div class="review-meta">Profissional Jurídica</div></div>
         </div>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">Os cursos oferecidos são excepcionais! Os seminários são extremamente enriquecedores, repletos de informações essenciais para a prática profissional. Sobre o livro O Manual da Profissão — trata-se de uma obra excelente e atemporal, um guia indispensável para os Gestores Judiciais.</p>
+        <p class="review-text">Os cursos oferecidos são excepcionais! Os seminários são extremamente enriquecedores, repletos de informações essenciais para a prática profissional.</p>
       </div>
       <div class="review-card">
         <div class="review-header">
           <div class="review-avatar" style="background:#3a5a1a;">M</div>
-          <div><div class="review-name">Michele Areias</div><div class="review-meta">Aluna e leitora do Manual da Profissão</div></div>
+          <div><div class="review-name">Michele Areias</div><div class="review-meta">Aluna da Academia Paralegal</div></div>
         </div>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">Recebi o livro do Juninho Branquinho e só posso dizer que é uma obra essencial para todos! Juninho é um verdadeiro marco de profissionalismo, dedicação e paixão pela profissão. Recomendo de coração para todos que querem se destacar e transformar suas carreiras!</p>
+        <p class="review-text">Juninho é um verdadeiro marco de profissionalismo, dedicação e paixão pela profissão. Recomendo de coração para todos que querem se destacar e transformar suas carreiras!</p>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══ PARCELAMENTO BOLETO/PIX ═══ -->
-<div class="sec sec-n">
-  <div class="sec-inner">
-    <p class="stag">Parcelamento via boleto ou pix</p>
-    <h2 class="stitle stitle-w">Sem cartão? <em style="font-style:italic;color:var(--blue);">Sem problema.</em></h2>
-    <div class="sline"></div>
-    <p class="sdesc sdesc-w">Parcele em até 6x via boleto bancário ou pix, sem consulta ao SPC/SERASA. Clique na opção desejada para ser redirecionado à página de pagamento. O livro é enviado após o pagamento da 2ª parcela.</p>
-
-    <div class="parcela-grid">
-      <a href="https://pay.hotmart.com/Q99086019O?off=se0f4o98" class="parcela-btn" target="_blank" rel="noopener">
-        <div class="parcela-n">2x</div>
-        <div class="parcela-val">R$ 199,50</div>
-        <div class="parcela-note">1 + 1 parcelas</div>
-        <div class="parcela-arrow">Pagar assim →</div>
-      </a>
-      <a href="https://pay.hotmart.com/Q99086019O?off=bwfpp7gj" class="parcela-btn" target="_blank" rel="noopener">
-        <div class="parcela-n">3x</div>
-        <div class="parcela-val">R$ 133,00</div>
-        <div class="parcela-note">1 + 2 parcelas</div>
-        <div class="parcela-arrow">Pagar assim →</div>
-      </a>
-      <a href="https://pay.hotmart.com/Q99086019O?off=xk4a88le" class="parcela-btn" target="_blank" rel="noopener">
-        <div class="parcela-n">4x</div>
-        <div class="parcela-val">R$ 99,75</div>
-        <div class="parcela-note">1 + 3 parcelas</div>
-        <div class="parcela-arrow">Pagar assim →</div>
-      </a>
-      <a href="https://pay.hotmart.com/Q99086019O?off=khg9sn4p" class="parcela-btn" target="_blank" rel="noopener">
-        <div class="parcela-n">5x</div>
-        <div class="parcela-val">R$ 79,80</div>
-        <div class="parcela-note">1 + 4 parcelas</div>
-        <div class="parcela-arrow">Pagar assim →</div>
-      </a>
-      <a href="https://pay.hotmart.com/Q99086019O?off=1qyo8hwl" class="parcela-btn" target="_blank" rel="noopener">
-        <div class="parcela-n">6x</div>
-        <div class="parcela-val">R$ 66,50</div>
-        <div class="parcela-note">1 + 5 parcelas</div>
-        <div class="parcela-arrow">Pagar assim →</div>
-      </a>
-      <a href="https://pay.hotmart.com/Q99086019O" class="parcela-btn" target="_blank" rel="noopener" style="border-color:rgba(74,158,222,0.4);background:rgba(74,158,222,0.08);">
-        <div class="parcela-n" style="color:#fff;">10x</div>
-        <div class="parcela-val" style="color:var(--blue);">R$ 39,90</div>
-        <div class="parcela-note">no cartão de crédito</div>
-        <div class="parcela-arrow">Pagar assim →</div>
-      </a>
     </div>
 
     <!-- WhatsApp -->
@@ -566,9 +417,9 @@ img { max-width: 100%; display: block; }
     <p class="stag">É a sua oportunidade</p>
     <h2 class="cta-h">Prepare-se para o mercado de trabalho com um valor que <em>cabe no bolso.</em></h2>
     <p class="cta-p">Acesse de onde e quando quiser. Estude no seu ritmo. Domine o mercado. Torne-se referência na sua área. Uma única decisão — resultados para toda a carreira.</p>
-    <p class="cta-price-old">de R$ 499,00</p>
-    <div class="cta-price">por apenas <strong>R$ 399,00</strong></div>
-    <p class="cta-note">ou 10x de R$ 39,90 · 🛡 Garantia de 7 dias · Livro incluso com frete grátis</p>
+    <p class="cta-price-old">de R$ 399,00</p>
+    <div class="cta-price">por apenas <strong>R$ 299,00</strong></div>
+    <p class="cta-note">ou 10x de R$ 29,90 sem juros no cartão · 🛡 Garantia de 7 dias</p>
     <div class="cta-btns">
       <a href="https://pay.hotmart.com/Q99086019O" class="btn-p">Garantir meu acesso agora</a>
       <a href="https://wa.me/61999523521" class="btn-s" target="_blank">Falar no WhatsApp</a>
@@ -577,7 +428,6 @@ img { max-width: 100%; display: block; }
 </div>
 
 <script>
-// ─── Generic carousel engine ───────────────────────────────────────────────
 function initCarousel(trackId) {
   const track   = document.getElementById(trackId);
   if (!track) return;
@@ -617,7 +467,6 @@ function initCarousel(trackId) {
     }
   }
 
-  // bind buttons
   document.querySelectorAll(`.carousel-btn[data-track="${trackId}"]`).forEach(btn => {
     btn.addEventListener('click', () => {
       const dir = parseInt(btn.dataset.dir, 10);
